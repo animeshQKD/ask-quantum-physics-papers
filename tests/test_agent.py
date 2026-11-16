@@ -506,3 +506,18 @@ def test_the_model_reads_the_opening_of_the_section_the_question_names():
     given = {p.pid for p in state["context"]}
     assert {"P1-p18-2", "P1-p18-3", "P1-p18-4", "P1-p18-5"} <= given
     assert state["check"].ok
+
+
+def test_what_the_papers_do_not_give_is_a_sentence_of_its_own():
+    """16 Nov 2026, eval_background.py: 4 of 12 answers had "Your papers do not discuss MLE; they use ...
+    [P6-p2-9]": the checker cannot tell such a sentence from one that contradicts itself and warns. The
+    model is told to write it as two sentences, which pass."""
+    import checker
+    assert "That sentence stands alone" in agent.SYSTEM
+    ps = {"P6-p2-9": _p("P6-p2-9", "The density matrix was reconstructed from 16 analysis settings."),
+          "B7-p12-5": _p("B7-p12-5", "The estimated state is constrained to be positive semi-definite with unit trace.")}
+    bg = "MLE constrains the state to be positive semi-definite with unit trace [B7-p12-5]. "
+    joined = bg + "Your papers do not discuss MLE; they use reconstruction from 16 analysis settings [P6-p2-9]."
+    assert not checker.check(joined, ps, set(ps)).ok
+    two = bg + "Your papers do not discuss MLE. They reconstruct the density matrix from 16 analysis settings [P6-p2-9]."
+    assert checker.check(two, ps, set(ps)).ok

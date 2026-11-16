@@ -17,12 +17,15 @@ too, but the background knowledge will not help there.
 > **Status: first public version (16 November 2026)**, live as a Hugging Face Space:
 > https://huggingface.co/spaces/animesh1986/ask-quantum-physics-papers. Papers are read
 > into citable passages and searched; the agent answers with citations and the checker verifies them.
-> `eval_answers.py` measures the answers on 44 test questions, with 81 arXiv papers in the library. In the run of
-> 16 November 2026 as on the Space (search in the expected paper, with the background knowledge), all
-> 44 answers passed every check, 35 cited the expected passage or the one next to it, and 2 added
-> background sentences. Searching the whole library of 81 papers at once is harder: in a run the same
-> day, 41 of the 44 answers passed every check and 19 cited the expected passage or the one next to it. The background knowledge base has its
-> own 12 test questions (`eval_background.py`).
+> `eval_answers.py` measures the answers on 44 test questions, with 81 arXiv papers in the library. In
+> the run of 16 November 2026 as on the Space (search in the expected paper, with the background
+> knowledge), 43 of the 44 answers passed every check, 33 cited the expected passage or the one next
+> to it, and 2 added background sentences. Searching the whole library of 81 papers at once is harder:
+> in a run earlier the same day, before the last change to the model's instructions, 41 of the 44
+> answers passed every check and 19 cited the expected passage or the one next to it. The background
+> knowledge base has its own 12 test questions (`eval_background.py`): in the run of 16 November 2026
+> the expected background passage was among the 3 the agent reads for all 12, 11 of the 12 answers
+> passed every check, and all 12 cited the expected background passage.
 
 ## What works now
 

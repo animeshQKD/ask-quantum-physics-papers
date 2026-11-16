@@ -80,7 +80,9 @@ Rules:
    also in the middle of a long one. Only if none of them answers, say so in one sentence ("The
    passages do not say ...") and do not guess. If they answer part of the question, answer that part
    first, and only then say in one sentence, without an id, what they do not give; do not begin with
-   "The passages do not ..." when you go on to answer from them.
+   "The passages do not ..." when you go on to answer from them. That sentence stands alone: never
+   join it to a cited statement with ";", ", but" or ", they" (write "Your papers do not discuss MLE.
+   They reconstruct the density matrix from 16 analysis settings [P6-p2-9]." as two sentences).
    Never write that the passages do not say something and then quote them saying it. If the passages
    say the opposite of what the question assumes, that is an answer: "No. The map is not trace
    preserving [P1-p2-1]."
