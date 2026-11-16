@@ -1,0 +1,1836 @@
+{
+ "description": "Corpus of papers behind the topics of the Quantum Information Agent's tools. Used locally to choose the PDF reader and the embedding model and to evaluate retrieval. The PDFs are NOT redistributed: papers/ is ignored by git and never uploaded to the Space.",
+ "topics": {
+  "entanglement": "Entanglement, separability, measures and Bell inequalities",
+  "correlations": "Entropies, discord, coherence, fidelity and distances",
+  "steering": "EPR steering",
+  "open-systems": "Noise channels, master equations, decoherence and sudden death",
+  "photon-sources": "Polarization-entangled photon sources and polarization optics",
+  "tomography": "State tomography, maximum likelihood and error bars",
+  "bell-tests": "Photonic Bell tests and single-photon detection",
+  "teleportation": "Teleportation and the fully entangled fraction",
+  "qkd": "Quantum key distribution",
+  "error-correction": "Quantum error correction",
+  "representation": "Two-qubit state representations"
+ },
+ "papers": [
+  {
+   "key": "epr1935",
+   "topic": "entanglement",
+   "title": "Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?",
+   "authors": [
+    "Einstein",
+    "Podolsky",
+    "Rosen"
+   ],
+   "year": 1935,
+   "venue": "Phys. Rev. 47, 777",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "create_state"
+   ]
+  },
+  {
+   "key": "bell1964",
+   "topic": "entanglement",
+   "title": "On the Einstein Podolsky Rosen paradox",
+   "authors": [
+    "Bell"
+   ],
+   "year": 1964,
+   "venue": "Physics Physique Fizika 1, 195",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "compute_measures",
+    "certify_correlations"
+   ]
+  },
+  {
+   "key": "chsh1969",
+   "topic": "entanglement",
+   "title": "Proposed Experiment to Test Local Hidden-Variable Theories",
+   "authors": [
+    "Clauser",
+    "Horne",
+    "Shimony",
+    "Holt"
+   ],
+   "year": 1969,
+   "venue": "Phys. Rev. Lett. 23, 880",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "compute_measures",
+    "certify_correlations",
+    "plot_fringes"
+   ]
+  },
+  {
+   "key": "cirelson1980",
+   "topic": "entanglement",
+   "title": "Quantum generalizations of Bell's inequality",
+   "authors": [
+    "Cirel'son"
+   ],
+   "year": 1980,
+   "venue": "Lett. Math. Phys. 4, 93",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "compute_measures"
+   ]
+  },
+  {
+   "key": "werner1989",
+   "topic": "entanglement",
+   "title": "Quantum states with Einstein-Podolsky-Rosen correlations admitting a hidden-variable model",
+   "authors": [
+    "Werner"
+   ],
+   "year": 1989,
+   "venue": "Phys. Rev. A 40, 4277",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "create_state",
+    "mix_states"
+   ]
+  },
+  {
+   "key": "horodecki1995",
+   "topic": "entanglement",
+   "title": "Violating Bell inequality by mixed spin-1/2 states: necessary and sufficient condition",
+   "authors": [
+    "Horodecki",
+    "Horodecki",
+    "Horodecki"
+   ],
+   "year": 1995,
+   "venue": "Phys. Lett. A 200, 340",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "compute_measures",
+    "certify_correlations"
+   ]
+  },
+  {
+   "key": "peres1996",
+   "topic": "entanglement",
+   "title": "Separability Criterion for Density Matrices",
+   "authors": [
+    "Peres"
+   ],
+   "year": 1996,
+   "venue": "Phys. Rev. Lett. 77, 1413",
+   "arxiv_hint": "quant-ph/9604005",
+   "qi_tools": [
+    "compute_measures",
+    "certify_correlations"
+   ]
+  },
+  {
+   "key": "horodecki1996sep",
+   "topic": "entanglement",
+   "title": "Separability of mixed states: necessary and sufficient conditions",
+   "authors": [
+    "Horodecki",
+    "Horodecki",
+    "Horodecki"
+   ],
+   "year": 1996,
+   "venue": "Phys. Lett. A 223, 1",
+   "arxiv_hint": "quant-ph/9605038",
+   "qi_tools": [
+    "compute_measures",
+    "certify_correlations"
+   ]
+  },
+  {
+   "key": "horodecki1996info",
+   "topic": "entanglement",
+   "title": "Information-theoretic aspects of inseparability of mixed states",
+   "authors": [
+    "Horodecki",
+    "Horodecki"
+   ],
+   "year": 1996,
+   "venue": "Phys. Rev. A 54, 1838",
+   "arxiv_hint": "quant-ph/9607007",
+   "qi_tools": [
+    "compute_measures",
+    "plot_bloch_and_correlations"
+   ]
+  },
+  {
+   "key": "bennett1996",
+   "topic": "entanglement",
+   "title": "Mixed-state entanglement and quantum error correction",
+   "authors": [
+    "Bennett",
+    "DiVincenzo",
+    "Smolin",
+    "Wootters"
+   ],
+   "year": 1996,
+   "venue": "Phys. Rev. A 54, 3824",
+   "arxiv_hint": "quant-ph/9604024",
+   "qi_tools": [
+    "compute_measures"
+   ]
+  },
+  {
+   "key": "hill1997",
+   "topic": "entanglement",
+   "title": "Entanglement of a Pair of Quantum Bits",
+   "authors": [
+    "Hill",
+    "Wootters"
+   ],
+   "year": 1997,
+   "venue": "Phys. Rev. Lett. 78, 5022",
+   "arxiv_hint": "quant-ph/9703041",
+   "qi_tools": [
+    "compute_measures"
+   ]
+  },
+  {
+   "key": "wootters1998",
+   "topic": "entanglement",
+   "title": "Entanglement of Formation of an Arbitrary State of Two Qubits",
+   "authors": [
+    "Wootters"
+   ],
+   "year": 1998,
+   "venue": "Phys. Rev. Lett. 80, 2245",
+   "arxiv_hint": "quant-ph/9709029",
+   "qi_tools": [
+    "compute_measures"
+   ]
+  },
+  {
+   "key": "zyczkowski1998",
+   "topic": "entanglement",
+   "title": "Volume of the set of separable states",
+   "authors": [
+    "Zyczkowski",
+    "Horodecki",
+    "Sanpera",
+    "Lewenstein"
+   ],
+   "year": 1998,
+   "venue": "Phys. Rev. A 58, 883",
+   "arxiv_hint": "quant-ph/9804024",
+   "qi_tools": [
+    "compute_measures"
+   ]
+  },
+  {
+   "key": "coffman2000",
+   "topic": "entanglement",
+   "title": "Distributed entanglement",
+   "authors": [
+    "Coffman",
+    "Kundu",
+    "Wootters"
+   ],
+   "year": 2000,
+   "venue": "Phys. Rev. A 61, 052306",
+   "arxiv_hint": "quant-ph/9907047",
+   "qi_tools": [
+    "compute_measures"
+   ]
+  },
+  {
+   "key": "terhal2000",
+   "topic": "entanglement",
+   "title": "Bell inequalities and the separability criterion",
+   "authors": [
+    "Terhal"
+   ],
+   "year": 2000,
+   "venue": "Phys. Lett. A 271, 319",
+   "arxiv_hint": "quant-ph/9911057",
+   "qi_tools": [
+    "certify_correlations"
+   ]
+  },
+  {
+   "key": "vidal2002",
+   "topic": "entanglement",
+   "title": "Computable measure of entanglement",
+   "authors": [
+    "Vidal",
+    "Werner"
+   ],
+   "year": 2002,
+   "venue": "Phys. Rev. A 65, 032314",
+   "arxiv_hint": "quant-ph/0102117",
+   "qi_tools": [
+    "compute_measures"
+   ]
+  },
+  {
+   "key": "verstraete2002",
+   "topic": "entanglement",
+   "title": "Entanglement versus Bell Violations and Their Behavior under Local Filtering Operations",
+   "authors": [
+    "Verstraete",
+    "Wolf"
+   ],
+   "year": 2002,
+   "venue": "Phys. Rev. Lett. 89, 170401",
+   "arxiv_hint": "quant-ph/0112012",
+   "qi_tools": [
+    "compute_measures"
+   ]
+  },
+  {
+   "key": "plenio2005",
+   "topic": "entanglement",
+   "title": "Logarithmic Negativity: A Full Entanglement Monotone That is not Convex",
+   "authors": [
+    "Plenio"
+   ],
+   "year": 2005,
+   "venue": "Phys. Rev. Lett. 95, 090503",
+   "arxiv_hint": "quant-ph/0505071",
+   "qi_tools": [
+    "compute_measures"
+   ]
+  },
+  {
+   "key": "plenio2007",
+   "topic": "entanglement",
+   "title": "An introduction to entanglement measures",
+   "authors": [
+    "Plenio",
+    "Virmani"
+   ],
+   "year": 2007,
+   "venue": "Quantum Inf. Comput. 7, 1",
+   "arxiv_hint": "quant-ph/0504163",
+   "qi_tools": [
+    "compute_measures"
+   ]
+  },
+  {
+   "key": "horodecki2009",
+   "topic": "entanglement",
+   "title": "Quantum entanglement",
+   "authors": [
+    "Horodecki",
+    "Horodecki",
+    "Horodecki",
+    "Horodecki"
+   ],
+   "year": 2009,
+   "venue": "Rev. Mod. Phys. 81, 865",
+   "arxiv_hint": "quant-ph/0702225",
+   "qi_tools": [
+    "compute_measures",
+    "certify_correlations"
+   ]
+  },
+  {
+   "key": "guhne2009",
+   "topic": "entanglement",
+   "title": "Entanglement detection",
+   "authors": [
+    "Guhne",
+    "Toth"
+   ],
+   "year": 2009,
+   "venue": "Phys. Rep. 474, 1",
+   "arxiv_hint": "0811.2803",
+   "qi_tools": [
+    "certify_correlations"
+   ]
+  },
+  {
+   "key": "brunner2014",
+   "topic": "entanglement",
+   "title": "Bell nonlocality",
+   "authors": [
+    "Brunner",
+    "Cavalcanti",
+    "Pironio",
+    "Scarani",
+    "Wehner"
+   ],
+   "year": 2014,
+   "venue": "Rev. Mod. Phys. 86, 419",
+   "arxiv_hint": "1303.2849",
+   "qi_tools": [
+    "compute_measures",
+    "certify_correlations"
+   ]
+  },
+  {
+   "key": "uhlmann1976",
+   "topic": "correlations",
+   "title": "The \"transition probability\" in the state space of a *-algebra",
+   "authors": [
+    "Uhlmann"
+   ],
+   "year": 1976,
+   "venue": "Rep. Math. Phys. 9, 273",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "compare_states"
+   ]
+  },
+  {
+   "key": "jozsa1994",
+   "topic": "correlations",
+   "title": "Fidelity for Mixed Quantum States",
+   "authors": [
+    "Jozsa"
+   ],
+   "year": 1994,
+   "venue": "J. Mod. Opt. 41, 2315",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "compare_states"
+   ]
+  },
+  {
+   "key": "cerf1997",
+   "topic": "correlations",
+   "title": "Negative Entropy and Information in Quantum Mechanics",
+   "authors": [
+    "Cerf",
+    "Adami"
+   ],
+   "year": 1997,
+   "venue": "Phys. Rev. Lett. 79, 5194",
+   "arxiv_hint": "quant-ph/9512022",
+   "qi_tools": [
+    "compute_measures"
+   ]
+  },
+  {
+   "key": "fuchs1999",
+   "topic": "correlations",
+   "title": "Cryptographic distinguishability measures for quantum-mechanical states",
+   "authors": [
+    "Fuchs",
+    "van de Graaf"
+   ],
+   "year": 1999,
+   "venue": "IEEE Trans. Inf. Theory 45, 1216",
+   "arxiv_hint": "quant-ph/9712042",
+   "qi_tools": [
+    "compare_states"
+   ]
+  },
+  {
+   "key": "henderson2001",
+   "topic": "correlations",
+   "title": "Classical, quantum and total correlations",
+   "authors": [
+    "Henderson",
+    "Vedral"
+   ],
+   "year": 2001,
+   "venue": "J. Phys. A 34, 6899",
+   "arxiv_hint": "quant-ph/0105028",
+   "qi_tools": [
+    "compute_measures"
+   ]
+  },
+  {
+   "key": "ollivier2001",
+   "topic": "correlations",
+   "title": "Quantum Discord: A Measure of the Quantumness of Correlations",
+   "authors": [
+    "Ollivier",
+    "Zurek"
+   ],
+   "year": 2001,
+   "venue": "Phys. Rev. Lett. 88, 017901",
+   "arxiv_hint": "quant-ph/0105072",
+   "qi_tools": [
+    "compute_measures"
+   ]
+  },
+  {
+   "key": "horodecki2005",
+   "topic": "correlations",
+   "title": "Partial quantum information",
+   "authors": [
+    "Horodecki",
+    "Oppenheim",
+    "Winter"
+   ],
+   "year": 2005,
+   "venue": "Nature 436, 673",
+   "arxiv_hint": "quant-ph/0505062",
+   "qi_tools": [
+    "compute_measures"
+   ]
+  },
+  {
+   "key": "luo2008",
+   "topic": "correlations",
+   "title": "Quantum discord for two-qubit systems",
+   "authors": [
+    "Luo"
+   ],
+   "year": 2008,
+   "venue": "Phys. Rev. A 77, 042303",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "compute_measures"
+   ]
+  },
+  {
+   "key": "maziero2009",
+   "topic": "correlations",
+   "title": "Classical and quantum correlations under decoherence",
+   "authors": [
+    "Maziero",
+    "Celeri",
+    "Serra",
+    "Vedral"
+   ],
+   "year": 2009,
+   "venue": "Phys. Rev. A 80, 044102",
+   "arxiv_hint": "0905.3396",
+   "qi_tools": [
+    "compute_measures",
+    "apply_local_noise",
+    "plot_measures_vs_noise"
+   ]
+  },
+  {
+   "key": "ali2010",
+   "topic": "correlations",
+   "title": "Quantum discord for two-qubit X states",
+   "authors": [
+    "Ali",
+    "Rau",
+    "Alber"
+   ],
+   "year": 2010,
+   "venue": "Phys. Rev. A 81, 042105",
+   "arxiv_hint": "1002.3429",
+   "qi_tools": [
+    "compute_measures"
+   ]
+  },
+  {
+   "key": "mazzola2010",
+   "topic": "correlations",
+   "title": "Sudden Transition between Classical and Quantum Decoherence",
+   "authors": [
+    "Mazzola",
+    "Piilo",
+    "Maniscalco"
+   ],
+   "year": 2010,
+   "venue": "Phys. Rev. Lett. 104, 200401",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "compute_measures",
+    "evolve_state"
+   ]
+  },
+  {
+   "key": "modi2012",
+   "topic": "correlations",
+   "title": "The classical-quantum boundary for correlations: Discord and related measures",
+   "authors": [
+    "Modi",
+    "Brodutch",
+    "Cable",
+    "Paterek",
+    "Vedral"
+   ],
+   "year": 2012,
+   "venue": "Rev. Mod. Phys. 84, 1655",
+   "arxiv_hint": "1112.6238",
+   "qi_tools": [
+    "compute_measures"
+   ]
+  },
+  {
+   "key": "baumgratz2014",
+   "topic": "correlations",
+   "title": "Quantifying Coherence",
+   "authors": [
+    "Baumgratz",
+    "Cramer",
+    "Plenio"
+   ],
+   "year": 2014,
+   "venue": "Phys. Rev. Lett. 113, 140401",
+   "arxiv_hint": "1311.0275",
+   "qi_tools": [
+    "compute_measures"
+   ]
+  },
+  {
+   "key": "streltsov2017",
+   "topic": "correlations",
+   "title": "Colloquium: Quantum coherence as a resource",
+   "authors": [
+    "Streltsov",
+    "Adesso",
+    "Plenio"
+   ],
+   "year": 2017,
+   "venue": "Rev. Mod. Phys. 89, 041003",
+   "arxiv_hint": "1609.02439",
+   "qi_tools": [
+    "compute_measures"
+   ]
+  },
+  {
+   "key": "reid1989",
+   "topic": "steering",
+   "title": "Demonstration of the Einstein-Podolsky-Rosen paradox using nondegenerate parametric amplification",
+   "authors": [
+    "Reid"
+   ],
+   "year": 1989,
+   "venue": "Phys. Rev. A 40, 913",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "certify_correlations"
+   ]
+  },
+  {
+   "key": "wiseman2007",
+   "topic": "steering",
+   "title": "Steering, Entanglement, Nonlocality, and the Einstein-Podolsky-Rosen Paradox",
+   "authors": [
+    "Wiseman",
+    "Jones",
+    "Doherty"
+   ],
+   "year": 2007,
+   "venue": "Phys. Rev. Lett. 98, 140402",
+   "arxiv_hint": "quant-ph/0612147",
+   "qi_tools": [
+    "certify_correlations",
+    "plot_sweep"
+   ]
+  },
+  {
+   "key": "jones2007",
+   "topic": "steering",
+   "title": "Entanglement, Einstein-Podolsky-Rosen correlations, Bell nonlocality, and steering",
+   "authors": [
+    "Jones",
+    "Wiseman",
+    "Doherty"
+   ],
+   "year": 2007,
+   "venue": "Phys. Rev. A 76, 052116",
+   "arxiv_hint": "0709.0390",
+   "qi_tools": [
+    "certify_correlations"
+   ]
+  },
+  {
+   "key": "cavalcanti2009",
+   "topic": "steering",
+   "title": "Experimental criteria for steering and the Einstein-Podolsky-Rosen paradox",
+   "authors": [
+    "Cavalcanti",
+    "Jones",
+    "Wiseman",
+    "Reid"
+   ],
+   "year": 2009,
+   "venue": "Phys. Rev. A 80, 032112",
+   "arxiv_hint": "0907.1109",
+   "qi_tools": [
+    "certify_correlations"
+   ]
+  },
+  {
+   "key": "saunders2010",
+   "topic": "steering",
+   "title": "Experimental EPR-steering using Bell-local states",
+   "authors": [
+    "Saunders",
+    "Jones",
+    "Wiseman",
+    "Pryde"
+   ],
+   "year": 2010,
+   "venue": "Nat. Phys. 6, 845",
+   "arxiv_hint": "0909.0805",
+   "qi_tools": [
+    "certify_correlations"
+   ]
+  },
+  {
+   "key": "jevtic2014",
+   "topic": "steering",
+   "title": "Quantum Steering Ellipsoids",
+   "authors": [
+    "Jevtic",
+    "Pusey",
+    "Jennings",
+    "Rudolph"
+   ],
+   "year": 2014,
+   "venue": "Phys. Rev. Lett. 113, 020402",
+   "arxiv_hint": "1303.4724",
+   "qi_tools": [
+    "plot_bloch_and_correlations"
+   ]
+  },
+  {
+   "key": "jevtic2015",
+   "topic": "steering",
+   "title": "Einstein-Podolsky-Rosen steering and the steering ellipsoid",
+   "authors": [
+    "Jevtic",
+    "Hall",
+    "Anderson",
+    "Zwierz",
+    "Wiseman"
+   ],
+   "year": 2015,
+   "venue": "J. Opt. Soc. Am. B 32, A40",
+   "arxiv_hint": "1411.1517",
+   "qi_tools": [
+    "certify_correlations"
+   ]
+  },
+  {
+   "key": "nguyen2016",
+   "topic": "steering",
+   "title": "Necessary and sufficient condition for steerability of two-qubit states by the geometry of steering outcomes",
+   "authors": [
+    "Nguyen",
+    "Vu"
+   ],
+   "year": 2016,
+   "venue": "Europhys. Lett. 115, 10003",
+   "arxiv_hint": "1604.03815",
+   "qi_tools": [
+    "certify_correlations"
+   ]
+  },
+  {
+   "key": "cavalcanti2017",
+   "topic": "steering",
+   "title": "Quantum steering: a review with focus on semidefinite programming",
+   "authors": [
+    "Cavalcanti",
+    "Skrzypczyk"
+   ],
+   "year": 2017,
+   "venue": "Rep. Prog. Phys. 80, 024001",
+   "arxiv_hint": "1604.00501",
+   "qi_tools": [
+    "certify_correlations"
+   ]
+  },
+  {
+   "key": "uola2020",
+   "topic": "steering",
+   "title": "Quantum steering",
+   "authors": [
+    "Uola",
+    "Costa",
+    "Nguyen",
+    "Guhne"
+   ],
+   "year": 2020,
+   "venue": "Rev. Mod. Phys. 92, 015001",
+   "arxiv_hint": "1903.06663",
+   "qi_tools": [
+    "certify_correlations"
+   ]
+  },
+  {
+   "key": "kraus1971",
+   "topic": "open-systems",
+   "title": "General state changes in quantum theory",
+   "authors": [
+    "Kraus"
+   ],
+   "year": 1971,
+   "venue": "Ann. Phys. 64, 311",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "get_kraus_operators",
+    "apply_kraus_operators"
+   ]
+  },
+  {
+   "key": "choi1975",
+   "topic": "open-systems",
+   "title": "Completely positive linear maps on complex matrices",
+   "authors": [
+    "Choi"
+   ],
+   "year": 1975,
+   "venue": "Linear Algebra Appl. 10, 285",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "apply_kraus_operators"
+   ]
+  },
+  {
+   "key": "lindblad1976",
+   "topic": "open-systems",
+   "title": "On the generators of quantum dynamical semigroups",
+   "authors": [
+    "Lindblad"
+   ],
+   "year": 1976,
+   "venue": "Commun. Math. Phys. 48, 119",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "evolve_state"
+   ]
+  },
+  {
+   "key": "gorini1976",
+   "topic": "open-systems",
+   "title": "Completely positive dynamical semigroups of N-level systems",
+   "authors": [
+    "Gorini",
+    "Kossakowski",
+    "Sudarshan"
+   ],
+   "year": 1976,
+   "venue": "J. Math. Phys. 17, 821",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "evolve_state"
+   ]
+  },
+  {
+   "key": "lidar1998",
+   "topic": "open-systems",
+   "title": "Decoherence-Free Subspaces for Quantum Computation",
+   "authors": [
+    "Lidar",
+    "Chuang",
+    "Whaley"
+   ],
+   "year": 1998,
+   "venue": "Phys. Rev. Lett. 81, 2594",
+   "arxiv_hint": "quant-ph/9807004",
+   "qi_tools": [
+    "apply_global_noise",
+    "evolve_state"
+   ]
+  },
+  {
+   "key": "kwiat2000",
+   "topic": "open-systems",
+   "title": "Experimental Verification of Decoherence-Free Subspaces",
+   "authors": [
+    "Kwiat",
+    "Berglund",
+    "Altepeter",
+    "White"
+   ],
+   "year": 2000,
+   "venue": "Science 290, 498",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "apply_global_noise"
+   ]
+  },
+  {
+   "key": "yu2004",
+   "topic": "open-systems",
+   "title": "Finite-Time Disentanglement Via Spontaneous Emission",
+   "authors": [
+    "Yu",
+    "Eberly"
+   ],
+   "year": 2004,
+   "venue": "Phys. Rev. Lett. 93, 140404",
+   "arxiv_hint": "quant-ph/0404161",
+   "qi_tools": [
+    "evolve_state",
+    "plot_measures_vs_noise"
+   ]
+  },
+  {
+   "key": "yu2006",
+   "topic": "open-systems",
+   "title": "Quantum Open System Theory: Bipartite Aspects",
+   "authors": [
+    "Yu",
+    "Eberly"
+   ],
+   "year": 2006,
+   "venue": "Phys. Rev. Lett. 97, 140403",
+   "arxiv_hint": "quant-ph/0602196",
+   "qi_tools": [
+    "evolve_state"
+   ]
+  },
+  {
+   "key": "almeida2007",
+   "topic": "open-systems",
+   "title": "Environment-Induced Sudden Death of Entanglement",
+   "authors": [
+    "Almeida",
+    "de Melo",
+    "Hor-Meyll",
+    "Salles",
+    "Walborn",
+    "Souto Ribeiro",
+    "Davidovich"
+   ],
+   "year": 2007,
+   "venue": "Science 316, 579",
+   "arxiv_hint": "quant-ph/0701184",
+   "qi_tools": [
+    "evolve_state",
+    "apply_local_noise"
+   ]
+  },
+  {
+   "key": "konrad2008",
+   "topic": "open-systems",
+   "title": "Evolution equation for quantum entanglement",
+   "authors": [
+    "Konrad",
+    "de Melo",
+    "Tiersch",
+    "Kasztelan",
+    "Aragao",
+    "Buchleitner"
+   ],
+   "year": 2008,
+   "venue": "Nat. Phys. 4, 99",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "apply_local_noise"
+   ]
+  },
+  {
+   "key": "yu2009",
+   "topic": "open-systems",
+   "title": "Sudden Death of Entanglement",
+   "authors": [
+    "Yu",
+    "Eberly"
+   ],
+   "year": 2009,
+   "venue": "Science 323, 598",
+   "arxiv_hint": "0910.1396",
+   "qi_tools": [
+    "evolve_state"
+   ]
+  },
+  {
+   "key": "aolita2015",
+   "topic": "open-systems",
+   "title": "Open-system dynamics of entanglement: a key issues review",
+   "authors": [
+    "Aolita",
+    "de Melo",
+    "Davidovich"
+   ],
+   "year": 2015,
+   "venue": "Rep. Prog. Phys. 78, 042001",
+   "arxiv_hint": "1402.3713",
+   "qi_tools": [
+    "apply_local_noise",
+    "apply_global_noise",
+    "evolve_state"
+   ]
+  },
+  {
+   "key": "manzano2020",
+   "topic": "open-systems",
+   "title": "A short introduction to the Lindblad master equation",
+   "authors": [
+    "Manzano"
+   ],
+   "year": 2020,
+   "venue": "AIP Adv. 10, 025106",
+   "arxiv_hint": "1906.04478",
+   "qi_tools": [
+    "evolve_state"
+   ]
+  },
+  {
+   "key": "jones1941",
+   "topic": "photon-sources",
+   "title": "A New Calculus for the Treatment of Optical Systems. I. Description and Discussion of the Calculus",
+   "authors": [
+    "Jones"
+   ],
+   "year": 1941,
+   "venue": "J. Opt. Soc. Am. 31, 488",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "apply_waveplate",
+    "create_single_photon_state"
+   ]
+  },
+  {
+   "key": "kwiat1995",
+   "topic": "photon-sources",
+   "title": "New High-Intensity Source of Polarization-Entangled Photon Pairs",
+   "authors": [
+    "Kwiat",
+    "Mattle",
+    "Weinfurter",
+    "Zeilinger",
+    "Sergienko",
+    "Shih"
+   ],
+   "year": 1995,
+   "venue": "Phys. Rev. Lett. 75, 4337",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "create_state"
+   ]
+  },
+  {
+   "key": "kwiat1999",
+   "topic": "photon-sources",
+   "title": "Ultrabright source of polarization-entangled photons",
+   "authors": [
+    "Kwiat",
+    "Waks",
+    "White",
+    "Appelbaum",
+    "Eberhard"
+   ],
+   "year": 1999,
+   "venue": "Phys. Rev. A 60, R773",
+   "arxiv_hint": "quant-ph/9810003",
+   "qi_tools": [
+    "create_state",
+    "compensate_phase"
+   ]
+  },
+  {
+   "key": "white1999",
+   "topic": "photon-sources",
+   "title": "Nonmaximally Entangled States: Production, Characterization, and Utilization",
+   "authors": [
+    "White",
+    "James",
+    "Eberhard",
+    "Kwiat"
+   ],
+   "year": 1999,
+   "venue": "Phys. Rev. Lett. 83, 3103",
+   "arxiv_hint": "quant-ph/9908081",
+   "qi_tools": [
+    "create_pure_state",
+    "reconstruct_state_from_counts"
+   ]
+  },
+  {
+   "key": "kim2006",
+   "topic": "photon-sources",
+   "title": "Phase-stable source of polarization-entangled photons using a polarization Sagnac interferometer",
+   "authors": [
+    "Kim",
+    "Fiorentino",
+    "Wong"
+   ],
+   "year": 2006,
+   "venue": "Phys. Rev. A 73, 012316",
+   "arxiv_hint": "quant-ph/0509219",
+   "qi_tools": [
+    "create_state"
+   ]
+  },
+  {
+   "key": "fedrizzi2007",
+   "topic": "photon-sources",
+   "title": "A wavelength-tunable fiber-coupled source of narrowband entangled photons",
+   "authors": [
+    "Fedrizzi",
+    "Herbst",
+    "Poppe",
+    "Jennewein",
+    "Zeilinger"
+   ],
+   "year": 2007,
+   "venue": "Opt. Express 15, 15377",
+   "arxiv_hint": "0706.2877",
+   "qi_tools": [
+    "create_state"
+   ]
+  },
+  {
+   "key": "rangarajan2009",
+   "topic": "photon-sources",
+   "title": "Optimizing type-I polarization-entangled photons",
+   "authors": [
+    "Rangarajan",
+    "Goggin",
+    "Kwiat"
+   ],
+   "year": 2009,
+   "venue": "Opt. Express 17, 18920",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "compensate_phase"
+   ]
+  },
+  {
+   "key": "hradil1997",
+   "topic": "tomography",
+   "title": "Quantum-state estimation",
+   "authors": [
+    "Hradil"
+   ],
+   "year": 1997,
+   "venue": "Phys. Rev. A 55, R1561",
+   "arxiv_hint": "quant-ph/9609012",
+   "qi_tools": [
+    "reconstruct_state_from_counts"
+   ]
+  },
+  {
+   "key": "james2001",
+   "topic": "tomography",
+   "title": "Measurement of qubits",
+   "authors": [
+    "James",
+    "Kwiat",
+    "Munro",
+    "White"
+   ],
+   "year": 2001,
+   "venue": "Phys. Rev. A 64, 052312",
+   "arxiv_hint": "quant-ph/0103121",
+   "qi_tools": [
+    "reconstruct_state_from_counts",
+    "reconstruct_single_photon",
+    "simulate_tomography"
+   ]
+  },
+  {
+   "key": "rehacek2001",
+   "topic": "tomography",
+   "title": "Iterative algorithm for reconstruction of entangled states",
+   "authors": [
+    "Rehacek",
+    "Hradil",
+    "Jezek"
+   ],
+   "year": 2001,
+   "venue": "Phys. Rev. A 63, 040303",
+   "arxiv_hint": "quant-ph/0009093",
+   "qi_tools": [
+    "reconstruct_state_from_counts"
+   ]
+  },
+  {
+   "key": "thew2002",
+   "topic": "tomography",
+   "title": "Qudit quantum-state tomography",
+   "authors": [
+    "Thew",
+    "Nemoto",
+    "White",
+    "Munro"
+   ],
+   "year": 2002,
+   "venue": "Phys. Rev. A 66, 012303",
+   "arxiv_hint": "quant-ph/0201052",
+   "qi_tools": [
+    "reconstruct_state_from_counts"
+   ]
+  },
+  {
+   "key": "lvovsky2004",
+   "topic": "tomography",
+   "title": "Iterative maximum-likelihood reconstruction in quantum homodyne tomography",
+   "authors": [
+    "Lvovsky"
+   ],
+   "year": 2004,
+   "venue": "J. Opt. B 6, S556",
+   "arxiv_hint": "quant-ph/0311097",
+   "qi_tools": [
+    "reconstruct_state_from_counts"
+   ]
+  },
+  {
+   "key": "altepeter2005",
+   "topic": "tomography",
+   "title": "Photonic State Tomography",
+   "authors": [
+    "Altepeter",
+    "Jeffrey",
+    "Kwiat"
+   ],
+   "year": 2005,
+   "venue": "Adv. At. Mol. Opt. Phys. 52, 105",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "reconstruct_state_from_counts",
+    "simulate_tomography"
+   ]
+  },
+  {
+   "key": "rehacek2007",
+   "topic": "tomography",
+   "title": "Diluted maximum-likelihood algorithm for quantum tomography",
+   "authors": [
+    "Rehacek",
+    "Hradil",
+    "Knill",
+    "Lvovsky"
+   ],
+   "year": 2007,
+   "venue": "Phys. Rev. A 75, 042108",
+   "arxiv_hint": "quant-ph/0611244",
+   "qi_tools": [
+    "reconstruct_state_from_counts"
+   ]
+  },
+  {
+   "key": "deburgh2008",
+   "topic": "tomography",
+   "title": "Choice of measurement sets in qubit tomography",
+   "authors": [
+    "de Burgh",
+    "Langford",
+    "Doherty",
+    "Gilchrist"
+   ],
+   "year": 2008,
+   "venue": "Phys. Rev. A 78, 052122",
+   "arxiv_hint": "0706.3756",
+   "qi_tools": [
+    "simulate_tomography"
+   ]
+  },
+  {
+   "key": "gross2010",
+   "topic": "tomography",
+   "title": "Quantum State Tomography via Compressed Sensing",
+   "authors": [
+    "Gross",
+    "Liu",
+    "Flammia",
+    "Becker",
+    "Eisert"
+   ],
+   "year": 2010,
+   "venue": "Phys. Rev. Lett. 105, 150401",
+   "arxiv_hint": "0909.3304",
+   "qi_tools": [
+    "reconstruct_state_from_counts"
+   ]
+  },
+  {
+   "key": "blumekohout2010a",
+   "topic": "tomography",
+   "title": "Optimal, reliable estimation of quantum states",
+   "authors": [
+    "Blume-Kohout"
+   ],
+   "year": 2010,
+   "venue": "New J. Phys. 12, 043034",
+   "arxiv_hint": "quant-ph/0611080",
+   "qi_tools": [
+    "reconstruct_state_from_counts",
+    "get_tomography_report"
+   ]
+  },
+  {
+   "key": "blumekohout2010b",
+   "topic": "tomography",
+   "title": "Hedged Maximum Likelihood Quantum State Estimation",
+   "authors": [
+    "Blume-Kohout"
+   ],
+   "year": 2010,
+   "venue": "Phys. Rev. Lett. 105, 200504",
+   "arxiv_hint": "1001.2029",
+   "qi_tools": [
+    "reconstruct_state_from_counts"
+   ]
+  },
+  {
+   "key": "smolin2012",
+   "topic": "tomography",
+   "title": "Efficient Method for Computing the Maximum-Likelihood Quantum State from Measurements with Additive Gaussian Noise",
+   "authors": [
+    "Smolin",
+    "Gambetta",
+    "Smith"
+   ],
+   "year": 2012,
+   "venue": "Phys. Rev. Lett. 108, 070502",
+   "arxiv_hint": "1106.5458",
+   "qi_tools": [
+    "reconstruct_state_from_counts"
+   ]
+  },
+  {
+   "key": "christandl2012",
+   "topic": "tomography",
+   "title": "Reliable Quantum State Tomography",
+   "authors": [
+    "Christandl",
+    "Renner"
+   ],
+   "year": 2012,
+   "venue": "Phys. Rev. Lett. 109, 120403",
+   "arxiv_hint": "1108.5329",
+   "qi_tools": [
+    "get_tomography_report"
+   ]
+  },
+  {
+   "key": "schwemmer2015",
+   "topic": "tomography",
+   "title": "Systematic Errors in Current Quantum State Tomography Tools",
+   "authors": [
+    "Schwemmer",
+    "Knips",
+    "Richart",
+    "Weinfurter",
+    "Moroder",
+    "Kleinmann",
+    "Guhne"
+   ],
+   "year": 2015,
+   "venue": "Phys. Rev. Lett. 114, 080403",
+   "arxiv_hint": "1310.8465",
+   "qi_tools": [
+    "get_tomography_report",
+    "plot_tomography_fit"
+   ]
+  },
+  {
+   "key": "faist2016",
+   "topic": "tomography",
+   "title": "Practical and Reliable Error Bars in Quantum Tomography",
+   "authors": [
+    "Faist",
+    "Renner"
+   ],
+   "year": 2016,
+   "venue": "Phys. Rev. Lett. 117, 010404",
+   "arxiv_hint": "1509.06763",
+   "qi_tools": [
+    "get_tomography_report"
+   ]
+  },
+  {
+   "key": "efron1979",
+   "topic": "tomography",
+   "title": "Bootstrap Methods: Another Look at the Jackknife",
+   "authors": [
+    "Efron"
+   ],
+   "year": 1979,
+   "venue": "Ann. Statist. 7, 1",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "get_tomography_report"
+   ]
+  },
+  {
+   "key": "aspect1982",
+   "topic": "bell-tests",
+   "title": "Experimental Realization of Einstein-Podolsky-Rosen-Bohm Gedankenexperiment: A New Violation of Bell's Inequalities",
+   "authors": [
+    "Aspect",
+    "Grangier",
+    "Roger"
+   ],
+   "year": 1982,
+   "venue": "Phys. Rev. Lett. 49, 91",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "plot_fringes",
+    "certify_correlations"
+   ]
+  },
+  {
+   "key": "weihs1998",
+   "topic": "bell-tests",
+   "title": "Violation of Bell's Inequality under Strict Einstein Locality Conditions",
+   "authors": [
+    "Weihs",
+    "Jennewein",
+    "Simon",
+    "Weinfurter",
+    "Zeilinger"
+   ],
+   "year": 1998,
+   "venue": "Phys. Rev. Lett. 81, 5039",
+   "arxiv_hint": "quant-ph/9810080",
+   "qi_tools": [
+    "plot_fringes",
+    "certify_correlations"
+   ]
+  },
+  {
+   "key": "giustina2015",
+   "topic": "bell-tests",
+   "title": "Significant-Loophole-Free Test of Bell's Theorem with Entangled Photons",
+   "authors": [
+    "Giustina"
+   ],
+   "year": 2015,
+   "venue": "Phys. Rev. Lett. 115, 250401",
+   "arxiv_hint": "1511.03190",
+   "qi_tools": [
+    "certify_correlations"
+   ]
+  },
+  {
+   "key": "shalm2015",
+   "topic": "bell-tests",
+   "title": "Strong Loophole-Free Test of Local Realism",
+   "authors": [
+    "Shalm"
+   ],
+   "year": 2015,
+   "venue": "Phys. Rev. Lett. 115, 250402",
+   "arxiv_hint": "1511.03189",
+   "qi_tools": [
+    "certify_correlations"
+   ]
+  },
+  {
+   "key": "hadfield2009",
+   "topic": "bell-tests",
+   "title": "Single-photon detectors for optical quantum information applications",
+   "authors": [
+    "Hadfield"
+   ],
+   "year": 2009,
+   "venue": "Nat. Photonics 3, 696",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "simulate_tomography"
+   ]
+  },
+  {
+   "key": "eisaman2011",
+   "topic": "bell-tests",
+   "title": "Invited Review Article: Single-photon sources and detectors",
+   "authors": [
+    "Eisaman",
+    "Fan",
+    "Migdall",
+    "Polyakov"
+   ],
+   "year": 2011,
+   "venue": "Rev. Sci. Instrum. 82, 071101",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "simulate_tomography"
+   ]
+  },
+  {
+   "key": "bennett1993",
+   "topic": "teleportation",
+   "title": "Teleporting an unknown quantum state via dual classical and Einstein-Podolsky-Rosen channels",
+   "authors": [
+    "Bennett",
+    "Brassard",
+    "Crepeau",
+    "Jozsa",
+    "Peres",
+    "Wootters"
+   ],
+   "year": 1993,
+   "venue": "Phys. Rev. Lett. 70, 1895",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "teleportation_fidelity"
+   ]
+  },
+  {
+   "key": "popescu1994",
+   "topic": "teleportation",
+   "title": "Bell's inequalities versus teleportation: What is nonlocality?",
+   "authors": [
+    "Popescu"
+   ],
+   "year": 1994,
+   "venue": "Phys. Rev. Lett. 72, 797",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "teleportation_fidelity"
+   ]
+  },
+  {
+   "key": "massar1995",
+   "topic": "teleportation",
+   "title": "Optimal Extraction of Information from Finite Quantum Ensembles",
+   "authors": [
+    "Massar",
+    "Popescu"
+   ],
+   "year": 1995,
+   "venue": "Phys. Rev. Lett. 74, 1259",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "teleportation_fidelity"
+   ]
+  },
+  {
+   "key": "bouwmeester1997",
+   "topic": "teleportation",
+   "title": "Experimental quantum teleportation",
+   "authors": [
+    "Bouwmeester",
+    "Pan",
+    "Mattle",
+    "Eibl",
+    "Weinfurter",
+    "Zeilinger"
+   ],
+   "year": 1997,
+   "venue": "Nature 390, 575",
+   "arxiv_hint": "1901.11004",
+   "qi_tools": [
+    "teleportation_fidelity"
+   ]
+  },
+  {
+   "key": "horodecki1999",
+   "topic": "teleportation",
+   "title": "General teleportation channel, singlet fraction, and quasidistillation",
+   "authors": [
+    "Horodecki",
+    "Horodecki",
+    "Horodecki"
+   ],
+   "year": 1999,
+   "venue": "Phys. Rev. A 60, 1888",
+   "arxiv_hint": "quant-ph/9807091",
+   "qi_tools": [
+    "teleportation_fidelity"
+   ]
+  },
+  {
+   "key": "badziag2000",
+   "topic": "teleportation",
+   "title": "Local environment can enhance fidelity of quantum teleportation",
+   "authors": [
+    "Badziag",
+    "Horodecki",
+    "Horodecki",
+    "Horodecki"
+   ],
+   "year": 2000,
+   "venue": "Phys. Rev. A 62, 012311",
+   "arxiv_hint": "quant-ph/9912098",
+   "qi_tools": [
+    "teleportation_fidelity"
+   ]
+  },
+  {
+   "key": "pirandola2015",
+   "topic": "teleportation",
+   "title": "Advances in quantum teleportation",
+   "authors": [
+    "Pirandola",
+    "Eisert",
+    "Weedbrook",
+    "Furusawa",
+    "Braunstein"
+   ],
+   "year": 2015,
+   "venue": "Nat. Photonics 9, 641",
+   "arxiv_hint": "1505.07831",
+   "qi_tools": [
+    "teleportation_fidelity"
+   ]
+  },
+  {
+   "key": "bennett1984",
+   "topic": "qkd",
+   "title": "Quantum cryptography: Public key distribution and coin tossing",
+   "authors": [
+    "Bennett",
+    "Brassard"
+   ],
+   "year": 2014,
+   "venue": "Theor. Comput. Sci. 560, 7 (reprint of the 1984 paper)",
+   "arxiv_hint": "2003.06557",
+   "qi_tools": [
+    "qkd_key_rate"
+   ]
+  },
+  {
+   "key": "ekert1991",
+   "topic": "qkd",
+   "title": "Quantum cryptography based on Bell's theorem",
+   "authors": [
+    "Ekert"
+   ],
+   "year": 1991,
+   "venue": "Phys. Rev. Lett. 67, 661",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "qkd_key_rate",
+    "certify_correlations"
+   ]
+  },
+  {
+   "key": "bennett1992",
+   "topic": "qkd",
+   "title": "Quantum cryptography without Bell's theorem",
+   "authors": [
+    "Bennett",
+    "Brassard",
+    "Mermin"
+   ],
+   "year": 1992,
+   "venue": "Phys. Rev. Lett. 68, 557",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "qkd_key_rate"
+   ]
+  },
+  {
+   "key": "shor2000",
+   "topic": "qkd",
+   "title": "Simple Proof of Security of the BB84 Quantum Key Distribution Protocol",
+   "authors": [
+    "Shor",
+    "Preskill"
+   ],
+   "year": 2000,
+   "venue": "Phys. Rev. Lett. 85, 441",
+   "arxiv_hint": "quant-ph/0003004",
+   "qi_tools": [
+    "qkd_key_rate"
+   ]
+  },
+  {
+   "key": "jennewein2000",
+   "topic": "qkd",
+   "title": "Quantum Cryptography with Entangled Photons",
+   "authors": [
+    "Jennewein",
+    "Simon",
+    "Weihs",
+    "Weinfurter",
+    "Zeilinger"
+   ],
+   "year": 2000,
+   "venue": "Phys. Rev. Lett. 84, 4729",
+   "arxiv_hint": "quant-ph/9912117",
+   "qi_tools": [
+    "qkd_key_rate"
+   ]
+  },
+  {
+   "key": "naik2000",
+   "topic": "qkd",
+   "title": "Entangled State Quantum Cryptography: Eavesdropping on the Ekert Protocol",
+   "authors": [
+    "Naik",
+    "Peterson",
+    "White",
+    "Berglund",
+    "Kwiat"
+   ],
+   "year": 2000,
+   "venue": "Phys. Rev. Lett. 84, 4733",
+   "arxiv_hint": "quant-ph/9912105",
+   "qi_tools": [
+    "qkd_key_rate"
+   ]
+  },
+  {
+   "key": "gisin2002",
+   "topic": "qkd",
+   "title": "Quantum cryptography",
+   "authors": [
+    "Gisin",
+    "Ribordy",
+    "Tittel",
+    "Zbinden"
+   ],
+   "year": 2002,
+   "venue": "Rev. Mod. Phys. 74, 145",
+   "arxiv_hint": "quant-ph/0101098",
+   "qi_tools": [
+    "qkd_key_rate"
+   ]
+  },
+  {
+   "key": "devetak2005",
+   "topic": "qkd",
+   "title": "Distillation of secret key and entanglement from quantum states",
+   "authors": [
+    "Devetak",
+    "Winter"
+   ],
+   "year": 2005,
+   "venue": "Proc. R. Soc. A 461, 207",
+   "arxiv_hint": "quant-ph/0306078",
+   "qi_tools": [
+    "qkd_key_rate"
+   ]
+  },
+  {
+   "key": "lo2005",
+   "topic": "qkd",
+   "title": "Efficient Quantum Key Distribution Scheme and a Proof of Its Unconditional Security",
+   "authors": [
+    "Lo",
+    "Chau",
+    "Ardehali"
+   ],
+   "year": 2005,
+   "venue": "J. Cryptol. 18, 133",
+   "arxiv_hint": "quant-ph/0011056",
+   "qi_tools": [
+    "qkd_key_rate"
+   ]
+  },
+  {
+   "key": "ma2007",
+   "topic": "qkd",
+   "title": "Quantum key distribution with entangled photon sources",
+   "authors": [
+    "Ma",
+    "Fung",
+    "Lo"
+   ],
+   "year": 2007,
+   "venue": "Phys. Rev. A 76, 012307",
+   "arxiv_hint": "quant-ph/0703122",
+   "qi_tools": [
+    "qkd_key_rate"
+   ]
+  },
+  {
+   "key": "koashi2009",
+   "topic": "qkd",
+   "title": "Simple security proof of quantum key distribution based on complementarity",
+   "authors": [
+    "Koashi"
+   ],
+   "year": 2009,
+   "venue": "New J. Phys. 11, 045018",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "qkd_key_rate"
+   ]
+  },
+  {
+   "key": "scarani2009",
+   "topic": "qkd",
+   "title": "The security of practical quantum key distribution",
+   "authors": [
+    "Scarani",
+    "Bechmann-Pasquinucci",
+    "Cerf",
+    "Dusek",
+    "Lutkenhaus",
+    "Peev"
+   ],
+   "year": 2009,
+   "venue": "Rev. Mod. Phys. 81, 1301",
+   "arxiv_hint": "0802.4155",
+   "qi_tools": [
+    "qkd_key_rate"
+   ]
+  },
+  {
+   "key": "pirandola2020",
+   "topic": "qkd",
+   "title": "Advances in quantum cryptography",
+   "authors": [
+    "Pirandola"
+   ],
+   "year": 2020,
+   "venue": "Adv. Opt. Photonics 12, 1012",
+   "arxiv_hint": "1906.01645",
+   "qi_tools": [
+    "qkd_key_rate"
+   ]
+  },
+  {
+   "key": "shor1995",
+   "topic": "error-correction",
+   "title": "Scheme for reducing decoherence in quantum computer memory",
+   "authors": [
+    "Shor"
+   ],
+   "year": 1995,
+   "venue": "Phys. Rev. A 52, R2493",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "bit_flip_code"
+   ]
+  },
+  {
+   "key": "steane1996",
+   "topic": "error-correction",
+   "title": "Error Correcting Codes in Quantum Theory",
+   "authors": [
+    "Steane"
+   ],
+   "year": 1996,
+   "venue": "Phys. Rev. Lett. 77, 793",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "bit_flip_code"
+   ]
+  },
+  {
+   "key": "pittman2005",
+   "topic": "error-correction",
+   "title": "Demonstration of quantum error correction using linear optics",
+   "authors": [
+    "Pittman",
+    "Jacobs",
+    "Franson"
+   ],
+   "year": 2005,
+   "venue": "Phys. Rev. A 71, 052332",
+   "arxiv_hint": "quant-ph/0502042",
+   "qi_tools": [
+    "bit_flip_code"
+   ]
+  },
+  {
+   "key": "devitt2013",
+   "topic": "error-correction",
+   "title": "Quantum error correction for beginners",
+   "authors": [
+    "Devitt",
+    "Munro",
+    "Nemoto"
+   ],
+   "year": 2013,
+   "venue": "Rep. Prog. Phys. 76, 076001",
+   "arxiv_hint": "0905.2794",
+   "qi_tools": [
+    "bit_flip_code"
+   ]
+  },
+  {
+   "key": "fano1983",
+   "topic": "representation",
+   "title": "Pairs of two-level systems",
+   "authors": [
+    "Fano"
+   ],
+   "year": 1983,
+   "venue": "Rev. Mod. Phys. 55, 855",
+   "arxiv_hint": "",
+   "qi_tools": [
+    "plot_bloch_and_correlations",
+    "show_density_matrix"
+   ]
+  }
+ ]
+}

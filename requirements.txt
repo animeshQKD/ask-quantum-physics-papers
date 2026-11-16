@@ -1,0 +1,15 @@
+# the app (deploy_space.py writes the Space's requirements.txt with exact versions from your environment)
+gradio[mcp]==6.27.0
+pymupdf>=1.26
+fastembed>=0.7
+qdrant-client>=1.12
+langchain-qdrant>=0.2
+langgraph>=1.2
+langchain-core>=1.6
+langchain-groq>=1.1
+langchain-ollama>=1.1
+langchain-google-genai>=4.0
+langchain-openai>=1.0
+python-dotenv
+httpx
+rich>=13

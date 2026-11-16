@@ -1,0 +1,521 @@
+{
+ "description": "Retrieval questions for eval_retrieval.py. Each gold passage is given by paper key and a short anchor: exact words of the passage (found by textnorm.match_form, so line breaks, hyphenation and ligatures do not matter). Written once the corpus PDFs are available, so that every anchor is checked against the real text.",
+ "questions": [
+  {
+   "id": "q01",
+   "type": "formula",
+   "question": "How is the concurrence of a two-qubit mixed state computed?",
+   "gold": [
+    {
+     "paper": "wootters1998",
+     "anchor": "C(ρ) = max {0, λ_1 − λ_2 − λ_3 − λ_4}"
+    },
+    {
+     "paper": "wootters1998",
+     "anchor": "are the eigenvalues, in decreasing order, of the Hermitian matrix"
+    }
+   ]
+  },
+  {
+   "id": "q02",
+   "type": "paraphrase",
+   "question": "Which closed-form result gives the entanglement of formation of an arbitrary state of two qubits?",
+   "gold": [
+    {
+     "paper": "wootters1998",
+     "anchor": "E(ρ) = E(C(ρ))"
+    },
+    {
+     "paper": "wootters1998",
+     "anchor": "ranges from 0 to 1 as C goes from 0 to 1"
+    }
+   ]
+  },
+  {
+   "id": "q03",
+   "type": "lookup",
+   "question": "What necessary condition for separability did Peres derive using the partial transposition?",
+   "gold": [
+    {
+     "paper": "peres1996",
+     "anchor": "a necessary condition for separability is that a matrix, obtained by partial transposition"
+    }
+   ]
+  },
+  {
+   "id": "q04",
+   "type": "lookup",
+   "question": "For which system dimensions is a positive partial transpose sufficient for separability?",
+   "gold": [
+    {
+     "paper": "horodecki1996sep",
+     "anchor": "As a result we obtain a simple criterion of"
+    }
+   ]
+  },
+  {
+   "id": "q05",
+   "type": "formula",
+   "question": "How is the logarithmic negativity defined?",
+   "gold": [
+    {
+     "paper": "vidal2002",
+     "anchor": "E_N (ρ) ≡ log_2 ||ρ^{TA}||_1"
+    }
+   ]
+  },
+  {
+   "id": "q06",
+   "type": "paraphrase",
+   "question": "What quantity does the negativity of a bipartite state measure in terms of the partially transposed density matrix?",
+   "gold": [
+    {
+     "paper": "vidal2002",
+     "anchor": "absolute value of the sum of negative eigenvalues of ρ^{TA}"
+    }
+   ]
+  },
+  {
+   "id": "q07",
+   "type": "lookup",
+   "question": "Is the logarithmic negativity a convex function of the state?",
+   "gold": [
+    {
+     "paper": "plenio2005",
+     "anchor": "The logarithmic negativity is, however, not convex"
+    }
+   ]
+  },
+  {
+   "id": "q08",
+   "type": "formula",
+   "question": "What inequality limits how much entanglement qubit A can share with qubits B and C?",
+   "gold": [
+    {
+     "paper": "coffman2000",
+     "anchor": "τ_{AB} + τ_{AC} ≤ τ_{A(BC)}"
+    }
+   ]
+  },
+  {
+   "id": "q09",
+   "type": "paraphrase",
+   "question": "Why can quantum entanglement not be distributed arbitrarily among three particles?",
+   "gold": [
+    {
+     "paper": "coffman2000",
+     "anchor": "quantum entanglement cannot be freely shared among many objects"
+    }
+   ]
+  },
+  {
+   "id": "q10",
+   "type": "formula",
+   "question": "How did Henderson and Vedral define the classical correlations of a bipartite state?",
+   "gold": [
+    {
+     "paper": "henderson2001",
+     "anchor": "C_B(ρ_{AB}) = max_{B_i^†B_i} S(ρ_A) − ∑_i p_iS(ρ_A^i)"
+    }
+   ]
+  },
+  {
+   "id": "q11",
+   "type": "lookup",
+   "question": "For which family of two-qubit states was the quantum discord computed analytically?",
+   "gold": [
+    {
+     "paper": "ali2010",
+     "anchor": "seven-parameter family of so called X-states"
+    }
+   ]
+  },
+  {
+   "id": "q12",
+   "type": "formula",
+   "question": "What is the l1-norm of coherence?",
+   "gold": [
+    {
+     "paper": "baumgratz2014",
+     "anchor": "C_{l1}(ϱ̂) = ∑_{i,j,i≠j} |ϱ_{i,j}|"
+    }
+   ]
+  },
+  {
+   "id": "q13",
+   "type": "formula",
+   "question": "Is there a closed formula for the relative entropy of coherence?",
+   "gold": [
+    {
+     "paper": "streltsov2017",
+     "anchor": "C_r(ϱ) = C_d(ϱ) = S (∆[ϱ]) − S (ϱ)"
+    }
+   ]
+  },
+  {
+   "id": "q14",
+   "type": "number",
+   "question": "How many measurements determine the polarization state of two qubits in tomography?",
+   "gold": [
+    {
+     "paper": "james2001",
+     "anchor": "the state of two qubits can be determined by the set of 16 measurements"
+    }
+   ]
+  },
+  {
+   "id": "q15",
+   "type": "multi",
+   "question": "Why is maximum likelihood estimation used instead of direct inversion of the measured data in quantum state tomography?",
+   "gold": [
+    {
+     "paper": "james2001",
+     "anchor": "tomographic approach to the estimation of quantum states has been developed"
+    },
+    {
+     "paper": "hradil1997",
+     "anchor": "Existing techniques for state reconstruction based on the inversion of measured data are shown to be overestimated"
+    }
+   ]
+  },
+  {
+   "id": "q16",
+   "type": "lookup",
+   "question": "Which two polarization bases are used in the BB84 protocol?",
+   "gold": [
+    {
+     "paper": "bennett1984",
+     "anchor": "rectilinear' basis for the Hilbert space"
+    },
+    {
+     "paper": "bennett1984",
+     "anchor": "diagonal' basis vectors"
+    }
+   ]
+  },
+  {
+   "id": "q17",
+   "type": "paraphrase",
+   "question": "How can the efficiency of BB84 be raised above one half?",
+   "gold": [
+    {
+     "paper": "lo2005",
+     "anchor": "biased choice of basis"
+    }
+   ]
+  },
+  {
+   "id": "q18",
+   "type": "number",
+   "question": "Up to which bit and phase error rate does the Shor-Preskill proof give a secure key?",
+   "gold": [
+    {
+     "paper": "shor2000",
+     "anchor": "error rates are less than 11%"
+    }
+   ]
+  },
+  {
+   "id": "q19",
+   "type": "number",
+   "question": "What is the critical QBER of BB84 with one-way post-processing, and how much does bitwise pre-processing raise it?",
+   "gold": [
+    {
+     "paper": "scarani2009",
+     "anchor": "bitwise pre-processing brings this value up to 12.4%"
+    }
+   ]
+  },
+  {
+   "id": "q20",
+   "type": "lookup",
+   "question": "Which quantum error-correcting codes are used in the simple security proof of BB84?",
+   "gold": [
+    {
+     "paper": "shor2000",
+     "anchor": "Calderbank-Shor-Steane (CSS) codes"
+    }
+   ]
+  },
+  {
+   "id": "q21",
+   "type": "paraphrase",
+   "question": "What technique lets coherent-state QKD reach high key rates despite multi-photon pulses?",
+   "gold": [
+    {
+     "paper": "ma2007",
+     "anchor": "Decoy state method [21] has been proposed as a useful method for substantially improving the performance"
+    }
+   ]
+  },
+  {
+   "id": "q22",
+   "type": "number",
+   "question": "What is the secret key capacity of a pure-loss channel with transmissivity eta?",
+   "gold": [
+    {
+     "paper": "pirandola2020",
+     "anchor": "secret key capacity of the channel, which is −log_2(1 − η)"
+    }
+   ]
+  },
+  {
+   "id": "q23",
+   "type": "number",
+   "question": "What is the maximal quantum violation of the CHSH inequality?",
+   "gold": [
+    {
+     "paper": "brunner2014",
+     "anchor": "S = 2√2 > 2"
+    }
+   ]
+  },
+  {
+   "id": "q24",
+   "type": "lookup",
+   "question": "What is a Bell inequality?",
+   "gold": [
+    {
+     "paper": "brunner2014",
+     "anchor": "a linear inequality for the probabilities p(ab|xy) that is necessarily verified by any model satisfying the locality condition"
+    }
+   ]
+  },
+  {
+   "id": "q25",
+   "type": "lookup",
+   "question": "Who introduced the concept of steering, and when?",
+   "gold": [
+    {
+     "paper": "wiseman2007",
+     "anchor": "The concept of steering was introduced by Schrödinger in 1935"
+    }
+   ]
+  },
+  {
+   "id": "q26",
+   "type": "paraphrase",
+   "question": "How does the set of steerable states compare with the entangled states and the Bell-nonlocal states?",
+   "gold": [
+    {
+     "paper": "jones2007",
+     "anchor": "steerable states are a strict subset of the entangled states, and a strict superset of the states that can exhibit Bell-nonlocality"
+    }
+   ]
+  },
+  {
+   "id": "q27",
+   "type": "lookup",
+   "question": "Which concept from measurement theory is closely connected with EPR steering?",
+   "gold": [
+    {
+     "paper": "uola2020",
+     "anchor": "steering turned out to be closely related to the concept of joint measurability"
+    }
+   ]
+  },
+  {
+   "id": "q28",
+   "type": "lookup",
+   "question": "Can the violation of a Bell inequality be written as an entanglement witness?",
+   "gold": [
+    {
+     "paper": "terhal2000",
+     "anchor": "a violation of a Bell inequality can formally be expressed as a witness for entanglement"
+    }
+   ]
+  },
+  {
+   "id": "q29",
+   "type": "lookup",
+   "question": "What is the definition of an entanglement witness?",
+   "gold": [
+    {
+     "paper": "guhne2009",
+     "anchor": "An observable W is called an entanglement witness"
+    },
+    {
+     "paper": "guhne2009",
+     "anchor": "T r(Wϱ_s) ≥ 0 for all separable"
+    }
+   ]
+  },
+  {
+   "id": "q30",
+   "type": "lookup",
+   "question": "What other names does the positive partial transpose condition have?",
+   "gold": [
+    {
+     "paper": "horodecki2009",
+     "anchor": "The positive partial transpose condition is called the Peres criterion"
+    }
+   ]
+  },
+  {
+   "id": "q31",
+   "type": "lookup",
+   "question": "How is the entanglement of formation of a mixed state defined?",
+   "gold": [
+    {
+     "paper": "bennett1996",
+     "anchor": "defined as the least expected entanglement of any ensemble of pure states"
+    }
+   ]
+  },
+  {
+   "id": "q32",
+   "type": "paraphrase",
+   "question": "How is the best achievable teleportation fidelity connected to the singlet fraction of the shared state?",
+   "gold": [
+    {
+     "paper": "horodecki1999",
+     "anchor": "direct relation between the optimal fidelity f_{max} of teleportation and the maximal singlet fraction"
+    }
+   ]
+  },
+  {
+   "id": "q33",
+   "type": "lookup",
+   "question": "Can conditional von Neumann entropies be negative?",
+   "gold": [
+    {
+     "paper": "cerf1997",
+     "anchor": "quantum (von Neumann) conditional entropies can be negative"
+    }
+   ]
+  },
+  {
+   "id": "q34",
+   "type": "paraphrase",
+   "question": "Can two qubits lose all their entanglement in a finite time under spontaneous emission?",
+   "gold": [
+    {
+     "paper": "yu2004",
+     "anchor": "become completely disentangled in a finite time"
+    },
+    {
+     "paper": "yu2004",
+     "anchor": "spontaneous disentanglement may take only a finite time"
+    }
+   ]
+  },
+  {
+   "id": "q35",
+   "type": "lookup",
+   "question": "Has the sudden death of entanglement been observed in an experiment?",
+   "gold": [
+    {
+     "paper": "almeida2007",
+     "anchor": "quantum entanglement may suddenly disappear"
+    }
+   ]
+  },
+  {
+   "id": "q36",
+   "type": "lookup",
+   "question": "Under which kind of decoherence can the classical correlation stay unaffected?",
+   "gold": [
+    {
+     "paper": "maziero2009",
+     "anchor": "the classical correlation is unaffected by decoherence"
+    }
+   ]
+  },
+  {
+   "id": "q37",
+   "type": "lookup",
+   "question": "How does the ultrabright source produce polarization-entangled photon pairs?",
+   "gold": [
+    {
+     "paper": "kwiat1999",
+     "anchor": "two identical down-conversion crystals, oriented at 90"
+    },
+    {
+     "paper": "kwiat1999",
+     "anchor": "using two such nonlinear crystals"
+    }
+   ]
+  },
+  {
+   "id": "q38",
+   "type": "paraphrase",
+   "question": "How was the locality loophole closed in the 1998 Bell test with entangled photons?",
+   "gold": [
+    {
+     "paper": "weihs1998",
+     "anchor": "The necessary space-like separation of the observations is achieved by"
+    }
+   ]
+  },
+  {
+   "id": "q39",
+   "type": "number",
+   "question": "How many measurement settings does compressed-sensing tomography need for a state of rank r?",
+   "gold": [
+    {
+     "paper": "gross2010",
+     "anchor": "using O(rd log^2 d) measurement settings"
+    }
+   ]
+  },
+  {
+   "id": "q40",
+   "type": "lookup",
+   "question": "What is a confidence region in quantum state tomography?",
+   "gold": [
+    {
+     "paper": "christandl2012",
+     "anchor": "regions in state space which contain the true state with high probability"
+    }
+   ]
+  },
+  {
+   "id": "q41",
+   "type": "lookup",
+   "question": "Which states span a decoherence-free subspace?",
+   "gold": [
+    {
+     "paper": "lidar1998",
+     "anchor": "decoherence-free subspaces are spanned by those states which are annihilated by all the generators"
+    }
+   ]
+  },
+  {
+   "id": "q42",
+   "type": "paraphrase",
+   "question": "What equation generates the most general Markovian dynamics of an open quantum system?",
+   "gold": [
+    {
+     "paper": "manzano2020",
+     "anchor": "the most general quantum dynamics is generated by the Lindblad equation"
+    }
+   ]
+  },
+  {
+   "id": "q43",
+   "type": "lookup",
+   "question": "Does the set of separable states have a nonzero volume?",
+   "gold": [
+    {
+     "paper": "zyczkowski1998",
+     "anchor": "the set of separable states possesses a nonzero volume"
+    }
+   ]
+  },
+  {
+   "id": "q44",
+   "type": "multi",
+   "question": "Which Bell tests with entangled photons closed the detection and locality loopholes at the same time?",
+   "gold": [
+    {
+     "paper": "giustina2015",
+     "anchor": "closes the most significant of these loopholes simultaneously"
+    },
+    {
+     "paper": "shalm2015",
+     "anchor": "We present a loophole-free violation of local realism using entangled photon pairs"
+    }
+   ]
+  }
+ ]
+}

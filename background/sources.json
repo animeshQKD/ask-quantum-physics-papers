@@ -1,0 +1,216 @@
+[
+ {
+  "alias": "B1",
+  "key": "gnonfin2023",
+  "topic": "entanglement",
+  "title": "The Separability Problem in Two Qubits Revisited",
+  "authors": [
+   "Honorine Gnonfin",
+   "Laure Gouba"
+  ],
+  "year": 2023,
+  "venue": "Symmetry",
+  "doi": "10.3390/sym15112089",
+  "arxiv_id": null,
+  "evidence": "OpenAlex: cc-by; Crossref: https://creativecommons.org/licenses/by/4.0/",
+  "passages": 425,
+  "licence": "CC BY 4.0"
+ },
+ {
+  "alias": "B2",
+  "key": "concurrence2015",
+  "topic": "entanglement",
+  "title": "Concurrence Measurement for the Two-Qubit Optical and Atomic States",
+  "authors": [
+   "Lan Zhou",
+   "Yu‐Bo Sheng"
+  ],
+  "year": 2015,
+  "venue": "Entropy",
+  "doi": "10.3390/e17064293",
+  "arxiv_id": null,
+  "evidence": "OpenAlex: cc-by; Crossref: https://creativecommons.org/licenses/by/4.0/",
+  "passages": 395,
+  "licence": "CC BY 4.0"
+ },
+ {
+  "alias": "B3",
+  "key": "xiang2022",
+  "topic": "steering",
+  "title": "Quantum Steering: Practical Challenges and Future Directions",
+  "authors": [
+   "Yu Xiang",
+   "Shuming Cheng",
+   "Qihuang Gong",
+   "Z. Ficek",
+   "Qiongyi He"
+  ],
+  "year": 2022,
+  "venue": "PRX Quantum",
+  "doi": "10.1103/prxquantum.3.030102",
+  "arxiv_id": null,
+  "evidence": "OpenAlex: cc-by; Crossref: https://creativecommons.org/licenses/by/4.0/",
+  "passages": 379,
+  "licence": "CC BY 4.0"
+ },
+ {
+  "alias": "B4",
+  "key": "campaioli2024",
+  "topic": "open-systems",
+  "title": "Quantum Master Equations: Tips and Tricks for Quantum Optics, Quantum Computing, and Beyond",
+  "authors": [
+   "Francesco Campaioli",
+   "Jared H. Cole",
+   "Harini Hapuarachchi"
+  ],
+  "year": 2024,
+  "venue": "PRX Quantum",
+  "doi": "10.1103/prxquantum.5.020202",
+  "arxiv_id": null,
+  "evidence": "Crossref: https://creativecommons.org/licenses/by/4.0/",
+  "passages": 818,
+  "licence": "CC BY 4.0"
+ },
+ {
+  "alias": "B5",
+  "key": "manzano2020",
+  "topic": "open-systems",
+  "title": "A short introduction to the Lindblad master equation",
+  "authors": [
+   "Daniel Manzano"
+  ],
+  "year": 2020,
+  "venue": "AIP Advances",
+  "doi": "10.1063/1.5115323",
+  "arxiv_id": null,
+  "evidence": "OpenAlex: cc-by; Crossref: https://creativecommons.org/licenses/by/4.0/",
+  "passages": 427,
+  "licence": "CC BY 4.0"
+ },
+ {
+  "alias": "B6",
+  "key": "czerwinski2022",
+  "topic": "tomography",
+  "title": "Selected Concepts of Quantum State Tomography",
+  "authors": [
+   "Artur Czerwiński"
+  ],
+  "year": 2022,
+  "venue": "Optics",
+  "doi": "10.3390/opt3030026",
+  "arxiv_id": null,
+  "evidence": "OpenAlex: cc-by; Crossref: https://creativecommons.org/licenses/by/4.0/",
+  "passages": 309,
+  "licence": "CC BY 4.0"
+ },
+ {
+  "alias": "B7",
+  "key": "tian2024",
+  "topic": "tomography",
+  "title": "Quantum Tomography: From Markovianity to Non-Markovianity",
+  "authors": [
+   "Tian Luan",
+   "Zetong Li",
+   "Congcong Zheng",
+   "Xueheng Kuang",
+   "Xutao Yu",
+   "Zaichen Zhang"
+  ],
+  "year": 2024,
+  "venue": "Symmetry",
+  "doi": "10.3390/sym16020180",
+  "arxiv_id": null,
+  "evidence": "OpenAlex: cc-by; Crossref: https://creativecommons.org/licenses/by/4.0/",
+  "passages": 304,
+  "licence": "CC BY 4.0"
+ },
+ {
+  "alias": "B8",
+  "key": "genovese2019",
+  "topic": "bell-tests",
+  "title": "Quantum Correlations and Quantum Non-Locality: A Review and a Few New Ideas",
+  "authors": [
+   "Marco Genovese",
+   "Marco Gramegna"
+  ],
+  "year": 2019,
+  "venue": "Applied Sciences",
+  "doi": "10.3390/app9245406",
+  "arxiv_id": null,
+  "evidence": "OpenAlex: cc-by; Crossref: https://creativecommons.org/licenses/by/4.0/",
+  "passages": 226,
+  "licence": "CC BY 4.0"
+ },
+ {
+  "alias": "B9",
+  "key": "teleportation2019",
+  "topic": "teleportation",
+  "title": "Twenty Years of Quantum State Teleportation at the Sapienza University in Rome",
+  "authors": [
+   "F. De Martini",
+   "Fabio Sciarrino"
+  ],
+  "year": 2019,
+  "venue": "Entropy",
+  "doi": "10.3390/e21080768",
+  "arxiv_id": null,
+  "evidence": "OpenAlex: cc-by; Crossref: https://creativecommons.org/licenses/by/4.0/",
+  "passages": 217,
+  "licence": "CC BY 4.0"
+ },
+ {
+  "alias": "B10",
+  "key": "shenoy2017",
+  "topic": "qkd",
+  "title": "Quantum Cryptography: Key Distribution and Beyond",
+  "authors": [
+   "Akshata Shenoy-Hejamadi",
+   "Anirban Pathak",
+   "Srikanth Radhakrishna"
+  ],
+  "year": 2017,
+  "venue": "Quanta",
+  "doi": "10.12743/quanta.v6i1.57",
+  "arxiv_id": null,
+  "evidence": "OpenAlex: cc-by; Crossref: https://creativecommons.org/licenses/by/4.0",
+  "passages": 736,
+  "licence": "CC BY 3.0"
+ },
+ {
+  "alias": "B11",
+  "key": "devitt2013",
+  "topic": "error-correction",
+  "title": "Quantum Error Correction for Beginners",
+  "authors": [
+   "Simon J. Devitt",
+   "Kae Nemoto",
+   "William J. Munro"
+  ],
+  "year": 2013,
+  "venue": "Rep. Prog. Phys. 76, 076001",
+  "doi": "10.1088/0034-4885/76/7/076001",
+  "arxiv_id": "0905.2794",
+  "evidence": "arXiv: http://creativecommons.org/licenses/by/3.0/",
+  "passages": 822,
+  "licence": "CC BY 3.0"
+ },
+ {
+  "alias": "B12",
+  "key": "jevtic2014",
+  "topic": "representation",
+  "title": "Quantum Steering Ellipsoids",
+  "authors": [
+   "Sania Jevtic",
+   "Matthew F. Pusey",
+   "David Jennings",
+   "Terry Rudolph"
+  ],
+  "year": 2014,
+  "venue": "Phys. Rev. Lett. 113, 020402",
+  "doi": "10.1103/physrevlett.113.020402",
+  "arxiv_id": "1303.4724",
+  "evidence": "arXiv: http://creativecommons.org/licenses/by/3.0/",
+  "passages": 331,
+  "licence": "CC BY 3.0"
+ }
+]

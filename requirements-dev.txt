@@ -1,0 +1,6 @@
+# development and evaluation only (never installed on the Space)
+-r requirements.txt
+pytest
+pyyaml
+pypdfium2          # PDF bake-off: the Apache/BSD-licensed alternative to PyMuPDF
+pdfplumber         # PDF bake-off: the MIT-licensed alternative to PyMuPDF
