@@ -2,7 +2,7 @@
 
 *Upload quantum physics papers (arXiv quant-ph preprints or journal PDFs) and ask questions. Every sentence of the answer cites a passage of your paper, and a checker verifies it.*
 
-[![tests](https://github.com/animeshQKD/paper-research-agent/actions/workflows/tests.yml/badge.svg)](https://github.com/animeshQKD/paper-research-agent/actions/workflows/tests.yml)
+[![tests](https://github.com/animeshQKD/ask-quantum-physics-papers/actions/workflows/tests.yml/badge.svg)](https://github.com/animeshQKD/ask-quantum-physics-papers/actions/workflows/tests.yml)
 ![Python 3.11](https://img.shields.io/badge/python-3.11-blue)
 ![Qdrant](https://img.shields.io/badge/vector%20store-Qdrant-dc244c)
 [![License: AGPL-3.0](https://img.shields.io/badge/license-AGPL--3.0-blue)](LICENSE)
@@ -14,14 +14,15 @@ optics and quantum information, arXiv quant-ph), and its background knowledge co
 The reader, the search and the checker are not tied to it: papers of other fields can be asked about
 too, but the background knowledge will not help there.
 
-> **Status: Phase 1, first version.** Papers are read into citable passages and searched; the agent
-> answers with citations and the checker verifies them. `eval_answers.py` measures the answers on the 44
-> test questions; in the latest development run (10 November 2026, search limited to the expected
-> papers, no background knowledge) 42 of the 44 answers passed every check. Searching the whole
-> library finds the right passage less often. The background knowledge base (below) has its own 12
-> test questions (`eval_background.py`); in the latest development run (11 November 2026) 10 of the
-> 12 answers passed every check and 10 cited the expected background passage. With the background
-> switched on, 43 of the 44 paper questions passed every check, and 3 answers added background sentences.
+> **Status: first public version (16 November 2026)**, live as a Hugging Face Space:
+> https://huggingface.co/spaces/animesh1986/ask-quantum-physics-papers. Papers are read
+> into citable passages and searched; the agent answers with citations and the checker verifies them.
+> `eval_answers.py` measures the answers on 44 test questions, with 81 arXiv papers in the library. In the run of
+> 16 November 2026 as on the Space (search in the expected paper, with the background knowledge), all
+> 44 answers passed every check, 35 cited the expected passage or the one next to it, and 2 added
+> background sentences. Searching the whole library of 81 papers at once is harder: in a run the same
+> day, 41 of the 44 answers passed every check and 19 cited the expected passage or the one next to it. The background knowledge base has its
+> own 12 test questions (`eval_background.py`).
 
 ## What works now
 
@@ -33,7 +34,7 @@ too, but the background knowledge will not help there.
   pages (Science) are not read in order;
 * a heading set in bold as the first line of its paragraph's block is set apart as a heading;
 * lines rebuilt from the positions of the glyphs, so a displayed equation whose glyphs the PDF stores
-  font by font still reads left to right, with sub- and superscripts marked (`ρ^{TA}`, `λ_1`);
+  font by font still reads left to right, with sub- and superscripts marked (`ρ^{T_A}`, `λ_1`);
 * math-font codes that PDFs often leave without Unicode decoded: the Symbol font, TeX's extension font
   (big ∑, ∫, √ and delimiters), pdfTeX's `\varrho`, Mathematica's Euclid fonts (ℕ, ℤ; brace pieces
   dropped); ITC Symbol, a text typeface, is read as text, not as the Symbol font; a glyph that cannot
@@ -326,8 +327,8 @@ CC BY, CC BY-SA or CC0 may be redistributed, and the report lists which those ar
 ## Run it
 
 ```bash
-git clone https://github.com/animeshQKD/paper-research-agent.git
-cd paper-research-agent
+git clone https://github.com/animeshQKD/ask-quantum-physics-papers.git
+cd ask-quantum-physics-papers
 python -m venv .venv && source .venv/bin/activate      # Windows: .venv\Scripts\activate
 pip install -r requirements-dev.txt
 python app.py                                           # http://127.0.0.1:7860

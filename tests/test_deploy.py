@@ -246,3 +246,14 @@ def test_deploy_stops_on_a_background_paper_that_is_not_cc_by(tmp_path):
     os.remove(os.path.join(bg, "SOURCES.md"))
     with pytest.raises(SystemExit, match="lacks SOURCES.md"):
         deploy_space.stage(str(tmp_path / "o2"), "x", background_dir=bg)
+
+
+def test_a_link_with_ask_in_it_is_no_key(tmp_path):
+    """16 Nov 2026: the Space card's GitHub link ".../ask-quantum-physics-papers" stopped the upload as an
+    OpenAI key "sk-quantum-physics-papers"."""
+    card = tmp_path / "README.md"
+    card.write_text("**Source code and tests:** https://github.com/animeshQKD/ask-quantum-physics-papers\n")
+    assert deploy_space.find_keys([str(card)]) == []
+    leak = tmp_path / "leak.py"
+    leak.write_text('key = "sk-proj-' + "a1B2c3D4e5F6g7H8i9J0k1L2" + '"\n')
+    assert deploy_space.find_keys([str(leak)]) == [str(leak)]

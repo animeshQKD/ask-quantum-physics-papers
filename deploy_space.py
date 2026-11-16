@@ -63,7 +63,9 @@ VARIABLES = {                                                        # public se
     "MAX_PDF_PAGES": "100",
 }
 
-KEY_PATTERNS = [r"hf_[A-Za-z0-9]{30,}", r"sk-[A-Za-z0-9_-]{20,}", r"gsk_[A-Za-z0-9]{20,}", r"AIza[0-9A-Za-z_-]{30,}"]
+# a key starts a word: "ask-quantum-physics-papers" in the GitHub link is no OpenAI key "sk-..." (16 Nov 2026)
+KEY_PATTERNS = [r"(?<![A-Za-z0-9])hf_[A-Za-z0-9]{30,}", r"(?<![A-Za-z0-9])sk-[A-Za-z0-9_-]{20,}",
+                r"(?<![A-Za-z0-9])gsk_[A-Za-z0-9]{20,}", r"(?<![A-Za-z0-9])AIza[0-9A-Za-z_-]{30,}"]
 
 
 def find_keys(paths: list[str]) -> list[str]:
@@ -203,8 +205,8 @@ ends every sentence with the ids of the passages it rests on. A deterministic ch
 verifies each sentence: the cited passages exist and were retrieved for this question, and every
 quote and every number occurs in a cited passage. The model may revise its answer once after the
 check; a sentence that still fails is shown with a warning and its reason, never removed silently.
-The language models come from Hugging Face Inference and the free tier of Groq, tried in turn; the
-paid OpenAI API is never used.
+The language models come from Hugging Face Inference, the free tier of Groq and Google Gemini, tried
+in turn; the paid OpenAI API is never used.
 {background_paragraph(n_background)}
 **Limits of this public demo:** PDFs up to {VARIABLES['MAX_PDF_MB']} MB and {VARIABLES['MAX_PDF_PAGES']} pages,
 {limit} papers per visitor. Uploaded papers are deleted after two hours without activity, or at once
