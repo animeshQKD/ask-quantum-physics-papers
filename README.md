@@ -1,6 +1,6 @@
 # Ask Your Quantum Physics Research Papers
 
-*Upload quantum physics papers (arXiv quant-ph preprints or journal PDFs) and ask questions. Every sentence of the answer cites a passage of your paper, and a checker verifies it.*
+*Upload quantum physics papers (arXiv quant-ph preprints or journal PDFs) and ask questions. Every sentence of the answer cites the passage it rests on, and a checker verifies it.*
 
 [![tests](https://github.com/animeshQKD/ask-quantum-physics-papers/actions/workflows/tests.yml/badge.svg)](https://github.com/animeshQKD/ask-quantum-physics-papers/actions/workflows/tests.yml)
 ![Python 3.11](https://img.shields.io/badge/python-3.11-blue)

@@ -117,6 +117,7 @@ def test_space_card(tmp_path):
     import index
     assert deploy_space.EMBED_DEFAULT == index.DEFAULT_MODEL
     assert {"agent", "rag", "langgraph"} <= set(meta["tags"])
+    assert meta["pinned"] is True      # stays at the top of the profile; every deploy rewrites the card
     assert "qdrant" in meta["tags"] and meta["thumbnail"] == "https://example.com/card.png"
     assert "**Source code and tests:** https://github.com/me/paper-research-agent" in card
     # the card describes what agent.py and checker.py do, and does not promise more
@@ -257,3 +258,4 @@ def test_a_link_with_ask_in_it_is_no_key(tmp_path):
     leak = tmp_path / "leak.py"
     leak.write_text('key = "sk-proj-' + "a1B2c3D4e5F6g7H8i9J0k1L2" + '"\n')
     assert deploy_space.find_keys([str(leak)]) == [str(leak)]
+

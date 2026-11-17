@@ -190,7 +190,7 @@ def test_a_figure_is_drawn_at_twice_its_display_scale(tmp_path):
 def test_the_app_is_called_by_what_it_does():
     import app
     assert app.INTRO.startswith("## Ask Your Quantum Physics Research Papers\n")
-    assert "Every sentence of the answer cites a passage" in app.INTRO
+    assert "Every sentence of the answer cites the passage it rests on" in app.INTRO
 
 
 def test_a_figure_at_the_top_of_a_page_leaves_out_the_running_head(tmp_path):

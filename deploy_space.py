@@ -187,13 +187,13 @@ sdk: gradio
 sdk_version: {gradio.__version__}
 python_version: "{py}"
 app_file: app.py
-pinned: false
+pinned: true
 short_description: {SHORT_DESCRIPTION}
 {yaml_list("tags", TAGS)}{yaml_list("models", models)}{f"thumbnail: {thumbnail}" + chr(10) if thumbnail else ""}---
 
 # {title}
 
-*Upload quantum physics papers (arXiv quant-ph preprints or journal PDFs) and ask questions. Every sentence of the answer cites a passage of your paper, and a checker verifies it.*
+*Upload quantum physics papers (arXiv quant-ph preprints or journal PDFs) and ask questions. Every sentence of the answer cites the passage it rests on, and a checker verifies it.*
 
 Upload a paper (PDF) and ask questions about it. The app splits the paper into passages (paragraphs,
 equations, figure captions, reference entries), each with a stable id such as `P1-p4-2` (paper 1,

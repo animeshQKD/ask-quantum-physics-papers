@@ -442,7 +442,7 @@ def question_markdown(question: str, turn: dict | None = None) -> str:
 
 # ---------------------------------------------------------------- the UI
 INTRO = ("## Ask Your Quantum Physics Research Papers\n"
-         "*Upload quantum physics papers (arXiv quant-ph preprints or journal PDFs) and ask questions. Every sentence of the answer cites a passage of your paper, and a checker verifies it.*\n\n"
+         "*Upload quantum physics papers (arXiv quant-ph preprints or journal PDFs) and ask questions. Every sentence of the answer cites the passage it rests on, and a checker verifies it.*\n\n"
          "In the **Library** tab, each paper is split into **passages with citable ids** such as "
          "`P1-p4-2` (paper 1, page 4, passage 2) and indexed for **hybrid search** (BM25 + embeddings in a "
          "Qdrant vector store). In the **Ask** tab, a language model answers from the best passages; every "
