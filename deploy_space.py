@@ -56,7 +56,8 @@ VARIABLES = {                                                        # public se
     "GEMINI_MODEL": None,
     "PROVIDER_ORDER": "hf,hf_backup,groq,groq_backup,gemini",
     "DAILY_HF_CALLS": "150",
-    "QUESTIONS_PER_HOUR": "40",
+    "QUESTIONS_PER_HOUR": "40",          # per visitor (session.py)
+    "QUESTIONS_PER_ADDRESS_HOUR": "120",  # per network address: a reload starts a new session
     "DOMAIN": "none",
     "EMBED_MODEL": None,
     "MAX_PDF_MB": "20",
@@ -209,7 +210,9 @@ The language models come from Hugging Face Inference, the free tier of Groq and 
 in turn; the paid OpenAI API is never used.
 {background_paragraph(n_background)}
 **Limits of this public demo:** PDFs up to {VARIABLES['MAX_PDF_MB']} MB and {VARIABLES['MAX_PDF_PAGES']} pages,
-{limit} papers per visitor. Uploaded papers are deleted after two hours without activity, or at once
+{limit} papers per visitor, and {VARIABLES['QUESTIONS_PER_HOUR']} questions per hour per visitor
+({VARIABLES['QUESTIONS_PER_ADDRESS_HOUR']} from one network address), so that the free model quotas last for everyone.
+Uploaded papers are deleted after two hours without activity, or at once
 with *Remove my papers*, and are never shared with other visitors. Do not upload confidential documents.
 
 Built by Dr. Animesh Sinha Roy with PyMuPDF, fastembed, Qdrant, LangChain and Gradio.{chr(10) + chr(10) + "**Source code and tests:** " + github if github else ""}

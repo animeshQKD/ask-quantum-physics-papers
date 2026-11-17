@@ -278,3 +278,71 @@ def test_the_upload_box_when_the_library_is_full():
     s = type("S", (), {"papers": {f"P{i}": None for i in range(1, app.session.MAX_PAPERS + 1)}})()
     box = app.upload_box(s)
     assert not box["interactive"] and "the limit: remove your papers to add others" in box["label"]
+
+
+def test_questions_per_hour_per_visitor_and_per_address(visitor, physics_pdf, monkeypatch):
+    """17 Nov 2026: QUESTIONS_PER_HOUR was set on the Space but read by no file. Now a visitor gets that
+    many questions an hour, and one network address (a reload starts a new session) a larger share."""
+    monkeypatch.setattr(session, "QUESTIONS_PER_HOUR", 2)
+    monkeypatch.setattr(session, "QUESTIONS_PER_ADDRESS_HOUR", 3)
+    monkeypatch.setattr(session, "_BY_ADDRESS", {})
+    t0 = 1_000_000.0
+    assert session.allow_question(visitor, "10.0.0.1", now=t0) == (0, "")
+    assert session.allow_question(visitor, "10.0.0.1", now=t0 + 60) == (0, "")
+    assert session.allow_question(visitor, "10.0.0.1", now=t0 + 120) == (3480, "session")   # 58 min to wait
+    assert len(visitor.asked) == 2                                    # a refused question is not counted
+    other = session.get("visitor_reloaded")                           # the same person after a reload
+    try:
+        assert session.allow_question(other, "10.0.0.1", now=t0 + 180) == (0, "")
+        assert session.allow_question(other, "10.0.0.1", now=t0 + 240) == (3360, "address")
+        assert session.allow_question(other, "10.0.0.2", now=t0 + 240) == (0, "")       # another network
+        assert session.allow_question(visitor, "10.0.0.1", now=t0 + 3601) == (0, "")    # an hour later
+    finally:
+        session.drop("visitor_reloaded")
+    assert all(len(k) == 16 and "10.0" not in k for k in session._BY_ADDRESS)          # only salted hashes
+    assert session.address_key("") == "" and session.address_key(None) == ""
+    monkeypatch.setattr(session, "QUESTIONS_PER_HOUR", 0)
+    monkeypatch.setattr(session, "QUESTIONS_PER_ADDRESS_HOUR", 0)
+    assert all(session.allow_question(visitor, "10.0.0.1", now=t0 + 7200) == (0, "") for _ in range(50))
+
+
+def test_the_ask_tab_tells_a_visitor_over_the_limit_when_to_come_back(visitor, physics_pdf, monkeypatch):
+    class Scripted:
+        def __init__(self):
+            self.calls = 0
+
+        def invoke(self, messages):
+            self.calls += 1
+            return type("M", (), {"content": "The measured concurrence is 0.89 ± 0.01 [P1-p2-2]."})()
+
+    app.add_paper(physics_pdf, visitor)
+    model = Scripted()
+    monkeypatch.setitem(app._LLM, "obj", model)
+    monkeypatch.setattr(session, "QUESTIONS_PER_HOUR", 1)
+    monkeypatch.setattr(session, "QUESTIONS_PER_ADDRESS_HOUR", 0)
+    assert "0.89" in app.answer_question(visitor, "What concurrence was measured?", "all papers", address="10.1.1.1")[0]
+    answer, info, sources, figs = app.answer_question(visitor, "And the CHSH value?", "all papers", address="10.1.1.1")
+    assert answer.startswith("_You have asked 1 question in the last hour, the limit of this free demo. "
+                             "You can ask again in 60 minutes._")
+    assert model.calls == 1 and (info, sources, figs) == ("", "", []) and len(visitor.turns) == 1
+    # empty or too long questions, and questions before an upload, do not use up the hour
+    assert "Type a question" in app.answer_question(visitor, " ", "all papers")[0]
+    assert len(visitor.asked) == 1
+    monkeypatch.setattr(session, "QUESTIONS_PER_ADDRESS_HOUR", 120)
+    assert app.limit_message(61, "address") == ("_120 questions came from your network in the last hour, the "
+                                                "limit of this free demo. You can ask again in 2 minutes._")
+
+
+def test_the_address_comes_from_the_proxy_header_and_the_about_tab_states_the_limits(monkeypatch):
+    req = type("R", (), {"headers": {"x-forwarded-for": "203.0.113.7, 10.0.0.1"},
+                         "client": type("C", (), {"host": "10.0.0.1"})()})()
+    assert app._address(req) == "203.0.113.7"
+    req.headers = {}
+    assert app._address(req) == "10.0.0.1" and app._address(None) == ""
+    monkeypatch.setattr(session, "QUESTIONS_PER_HOUR", 40)
+    monkeypatch.setattr(session, "QUESTIONS_PER_ADDRESS_HOUR", 120)
+    text = app.about_limits()
+    assert "40 questions per hour per visitor and 120 from one network address" in text
+    monkeypatch.setattr(session, "QUESTIONS_PER_HOUR", 0)
+    monkeypatch.setattr(session, "QUESTIONS_PER_ADDRESS_HOUR", 0)
+    assert "questions" not in app.about_limits()

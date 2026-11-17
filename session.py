@@ -13,11 +13,17 @@ context into its worker threads, so the agent's tools (Phase 1) will see the rig
 
 Sessions that are idle for SESSION_TTL_S seconds are deleted together with their uploaded files (a
 sweeper thread checks every 10 minutes); uploads are never shared with other visitors and never kept.
+
+Questions per hour (allow_question): at most QUESTIONS_PER_HOUR per session (40 on a Space, none
+locally) and, since a reload of the page starts a new session, at most QUESTIONS_PER_ADDRESS_HOUR
+from one network address (120 on a Space: a university network is many people behind one address).
+The address is kept only as a salted hash, in memory, for an hour; it is never written anywhere.
 """
 FILES_VERSION = "2026-11-13a"
 
 import contextlib
 import contextvars
+import hashlib
 import os
 import re
 import shutil
@@ -30,6 +36,9 @@ ON_SPACE = bool(os.getenv("SPACE_ID"))                       # set by Hugging Fa
 SESSION_TTL_S = int(os.getenv("SESSION_TTL_S", "7200"))      # 2 hours without a question
 MAX_SESSIONS = int(os.getenv("MAX_SESSIONS", "200"))
 MAX_PAPERS = int(os.getenv("MAX_PAPERS_PER_SESSION", "5"))     # uploaded papers per visitor
+QUESTIONS_PER_HOUR = int(os.getenv("QUESTIONS_PER_HOUR", "40" if ON_SPACE else "0"))       # per session; 0 = none
+QUESTIONS_PER_ADDRESS_HOUR = int(os.getenv("QUESTIONS_PER_ADDRESS_HOUR", "120" if ON_SPACE else "0"))
+HOUR_S = 3600
 SESSIONS_DIR = "sessions"                                      # under data/
 DEFAULT_ID = "default"
 
@@ -223,3 +232,35 @@ _SESSION_PATH = re.compile(r"data[/\\]" + SESSIONS_DIR + r"[/\\][^/\\\s'\"()]+[/
 def display_path(text: str) -> str:
     """Replace the long session folder 'data/sessions/<id>/' by 'uploads/' in text shown to a user."""
     return _SESSION_PATH.sub(UPLOADS + "/", text)
+
+
+_BY_ADDRESS: dict[str, list] = {}         # salted hash of a network address -> times of its questions
+_SALT = os.urandom(16)                    # new at every start: the hashes cannot be linked across runs
+
+
+def address_key(address: str | None) -> str:
+    """The salted hash of a network address ('' when it is not known)."""
+    address = (address or "").strip()
+    return hashlib.sha256(_SALT + address.encode()).hexdigest()[:16] if address else ""
+
+
+def allow_question(s: Session, address: str | None = None, now: float | None = None) -> tuple[int, str]:
+    """(0, "") when session s may ask now, and the question is counted; else (seconds until it may,
+    "session" or "address": which limit was reached). Counted before the model is called: a question
+    that fails still used the providers' quotas."""
+    now = time.time() if now is None else now
+    key = address_key(address)
+    with _LOCK:
+        s.asked[:] = [t for t in s.asked if now - t < HOUR_S]
+        for k in [k for k, ts in _BY_ADDRESS.items() if not ts or now - ts[-1] >= HOUR_S]:
+            del _BY_ADDRESS[k]
+        mine = _BY_ADDRESS.get(key, []) if key else []
+        mine[:] = [t for t in mine if now - t < HOUR_S]
+        if QUESTIONS_PER_HOUR and len(s.asked) >= QUESTIONS_PER_HOUR:
+            return max(1, int(s.asked[0] + HOUR_S - now)), "session"
+        if key and QUESTIONS_PER_ADDRESS_HOUR and len(mine) >= QUESTIONS_PER_ADDRESS_HOUR:
+            return max(1, int(mine[0] + HOUR_S - now)), "address"
+        s.asked.append(now)
+        if key:
+            _BY_ADDRESS[key] = mine + [now]
+        return 0, ""

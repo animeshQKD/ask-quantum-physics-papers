@@ -18,7 +18,7 @@ give; "Use background knowledge" turns this off.
 
 Every browser tab is its own session (session.py): its own papers and index. A session's papers and
 files are deleted after SESSION_TTL_S seconds without activity (2 hours) or with "Remove my papers".
-Limits: MAX_PDF_MB, MAX_PDF_PAGES, MAX_PAPERS_PER_SESSION.
+Limits: MAX_PDF_MB, MAX_PDF_PAGES, MAX_PAPERS_PER_SESSION, and the questions per hour (session.py).
 
 Embeddings: EMBEDDINGS=fastembed (default; the model is downloaded on first use), none (BM25 only)
 or hash (offline stand-in, for tests). If the embedding model cannot be loaded, search falls back
@@ -68,7 +68,7 @@ KIND_CHOICES = ["all", "body", "heading", "equation", "caption", "reference", "t
 
 _EMB = {"obj": None, "error": None, "tried": False}
 _LLM = {"obj": None}
-MAX_QUESTION = 600
+MAX_QUESTION = int(os.getenv("MAX_QUESTION_CHARS", "600"))
 # models write formulas as \( ... \) or $ ... $ despite the prompt: show them typeset
 LATEX = [{"left": "$$", "right": "$$", "display": True}, {"left": "\\[", "right": "\\]", "display": True},
          {"left": "\\(", "right": "\\)", "display": False}, {"left": "$", "right": "$", "display": False}]
@@ -358,11 +358,12 @@ def figures_html(figs: list[tuple[str, str]]) -> str:
 MAX_TURNS_SHOWN = 20      # earlier questions kept on the screen (the model sees agent.MAX_TURNS of them)
 
 
-def answer_question(s, question: str, scope, use_background: bool = True) -> tuple[str, str, str, list]:
+def answer_question(s, question: str, scope, use_background: bool = True,
+                    address: str | None = None) -> tuple[str, str, str, list]:
     """The Ask tab for session s: (answer Markdown, check summary, cited passages Markdown, the cited
     figures and tables as [(png path, caption)]). A question asked after an answer is a follow-up: the
     earlier turns of the conversation (s.turns) go to the agent, and an answered question is added to
-    them."""
+    them. address: the visitor's network address, for the limit of questions per hour (session.py)."""
     question = (question or "").strip()
     if not question:
         return "_Type a question._", "", "", []
@@ -370,6 +371,9 @@ def answer_question(s, question: str, scope, use_background: bool = True) -> tup
         return f"_Please ask a shorter question (at most {MAX_QUESTION} characters)._", "", "", []
     if not s.papers or s.index is None:
         return "_Upload a paper first (Library tab)._", "", "", []
+    wait, which = session.allow_question(s, address)
+    if wait:
+        return limit_message(wait, which), "", "", []
     docs = None if scope in (None, "all papers") else [scope]
     bg = background.ready() if use_background else None
     try:
@@ -412,6 +416,19 @@ def answer_question(s, question: str, scope, use_background: bool = True) -> tup
     return answer_md, f"*{html.escape(info)}*", sources_md, figs
 
 
+def limit_message(wait: int, which: str) -> str:
+    """The message when a visitor has asked the questions an hour allows (session.allow_question)."""
+    minutes = max(1, -(-wait // 60))
+    when = f"in {minutes} minute{'s' if minutes > 1 else ''}"
+    def questions(n):
+        return f"{n} question{'s' if n != 1 else ''}"
+    if which == "address":
+        return (f"_{questions(session.QUESTIONS_PER_ADDRESS_HOUR)} came from your network in the last hour, the "
+                f"limit of this free demo. You can ask again {when}._")
+    return (f"_You have asked {questions(session.QUESTIONS_PER_HOUR)} in the last hour, the limit of this free "
+            f"demo. You can ask again {when}._")
+
+
 def _understood(t: dict) -> str:
     """'Understood as: ...' when the follow-up was rewritten (agent.py, step understand)."""
     if agent._same(t["standalone"], t["question"]):
@@ -450,6 +467,18 @@ INTRO = ("## Ask Your Quantum Physics Research Papers\n"
          "numbers. A sentence it cannot confirm is shown with ⚠️. Where your paper does not give a definition "
          "or context the question needs, the answer adds a separate **Background** part from open-access "
          "review papers, cited and checked the same way.")
+
+
+def _address(request) -> str:
+    """The visitor's network address: the first of X-Forwarded-For (a Space is behind a proxy), else the
+    client's. Best effort: it is used only for the limit of questions per hour, hashed (session.py)."""
+    if request is None:
+        return ""
+    try:
+        forwarded = (request.headers.get("x-forwarded-for") or "").split(",")[0].strip()
+        return forwarded or (request.client.host if request.client else "") or ""
+    except Exception:  # noqa: BLE001 - no address means only the per-session limit applies
+        return ""
 
 
 def build_demo():
@@ -505,7 +534,7 @@ def build_demo():
                 f"<p><i>{html.escape(dense_status())}; showing BM25 results.</i></p>"
             return note + hits_html(hits, s)
 
-    def on_ask(question, scope, use_bg, sid):
+    def on_ask(question, scope, use_bg, sid, request: gr.Request = None):
         """(the question box, the earlier turns, the question, the answer, the check line, the cited
         passages, the figures): an answered question is moved up into the conversation and the box is
         emptied for the next one; a question that failed stays in the box, to be asked again."""
@@ -513,7 +542,7 @@ def build_demo():
             return question, "", "", RELOAD, "", "", gr.update(value="", visible=False)
         with session.use(sid) as s:
             last = s.turns[-1] if s.turns else None
-            answer_md, info, sources_md, figs = answer_question(s, question, scope, bool(use_bg))
+            answer_md, info, sources_md, figs = answer_question(s, question, scope, bool(use_bg), _address(request))
             answered = bool(s.turns) and s.turns[-1] is not last
             earlier = s.turns[:-1] if answered else s.turns
             asked = question_markdown((question or "").strip(), s.turns[-1] if answered else None)
@@ -706,6 +735,22 @@ criterion"), the section's first paragraph is put second. Each result shows the 
 **Your files**: uploaded papers are used only in your session and deleted after two hours without
 activity, or at once with *Remove my papers*. They are never shared with other visitors.
 """
+
+
+def about_limits() -> str:
+    """The limits paragraph of the About tab, from the settings in force."""
+    text = (f"\n\n**Limits of this free demo**: PDFs up to {MAX_PDF_MB:g} MB and {MAX_PDF_PAGES} pages, "
+            f"{session.MAX_PAPERS} papers at a time")
+    per, net = session.QUESTIONS_PER_HOUR, session.QUESTIONS_PER_ADDRESS_HOUR
+    if per or net:
+        parts = ([f"{per} question{'s' if per != 1 else ''} per hour per visitor"] if per else []) + \
+                ([f"{net} from one network address (a university's network is many people)"] if net else [])
+        text += (", " + " and ".join(parts) + ", so that the free model quotas last for everyone. The address is "
+                 "used only for this count, as a hash kept in memory for an hour")
+    return text + "."
+
+
+ABOUT = ABOUT.rstrip("\n") + about_limits() + "\n"
 
 
 CSS = """
